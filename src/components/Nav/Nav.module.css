@@ -1,0 +1,257 @@
+.btn {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  font-size: var(--nav);
+  font-weight: 400;
+  gap: clamp(0.625rem, 0.396rem + 0.98vw, 1.25rem);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+/*
+.navList li {
+  background-color: var(--white);
+}
+*/
+.navList li a,
+.productArrow{
+  display: inline-block;
+  padding: 5px clamp(0.625rem, 0.396rem + 0.98vw, 1.25rem); 
+}
+
+.productArrow {
+  position: relative;
+}
+/*
+.productArrow:hover {
+  opacity: 1;
+  cursor: default;
+}
+*/
+.productMenu {
+  display: none;
+}
+
+.productMenu li {
+  opacity: 0;
+}
+
+.productArrow {
+  position: relative;
+}
+
+.productArrow::after {
+  content: "";
+  display: inline-block;
+  background: url("/items/arrowOpen.svg");
+  width: 10px;
+  height: 7px;
+  top: 13px;
+  right: 0px;
+  position: absolute;
+}
+/*
+.openProduct .productArrow::after {
+  background: url("/arrowClose.svg");
+}
+
+.openProduct .productMenu {
+  display: block;
+}
+*/
+.openProduct .productMenuH {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+
+.openProduct .productMenuF {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  background: var(--white);
+  opacity: 0.8;
+}
+
+.openProduct .productMenu a {
+  color: var(--link-product);
+}
+
+.productMenu li:nth-of-type(1) {
+  animation: appear-menu 1.5s ease 0.15s forwards;
+}
+
+.productMenu li:nth-of-type(2) {
+  animation: appear-menu 1.5s ease 0.3s forwards;
+}
+
+.productMenu li:nth-of-type(3) {
+  animation: appear-menu 1.5s ease 0.45s forwards;
+}
+
+.productMenu li:nth-of-type(4) {
+  animation: appear-menu 1.5s ease 0.6s forwards;
+}
+
+.productMenu li:nth-of-type(5) {
+  animation: appear-menu 1.5s ease 0.6s forwards;
+}
+
+@keyframes appear-menu {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+@media (hover: hover) {
+  .list a {
+      -webkit-tap-highlight-color: transparent;
+  }
+
+  .list a:active {
+      color: var(--lightGray);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .btn {
+      all: unset;
+      outline: revert;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      position: relative;
+      z-index: 200;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+  }
+
+  .btn {
+      display: grid;
+      place-items: center;
+  }
+
+  .btn::before,
+  .btn::after,
+  .btn .bar {
+      grid-area: 1/1;
+      content: '';
+      display: block;
+      width: 29px;
+      height: 1.5px;
+      background-color: currentColor;
+      transition: transform 0.4s;
+  }
+
+  .close .btn {
+      color: var(--black);
+  }
+  .close .btn::before {
+      transform: translateY(-8px);
+  }
+  .close .btn::after {
+      transform: translateY(8px)
+  }
+
+  .open .btn {
+      color: var(--black);
+  }
+  .open .btn::before {
+      transform: rotate(45deg);
+  }
+  .open .btn::after {
+      transform: rotate(-45deg);
+  }
+
+  .open .btn .bar {
+      transform:  scale(0);
+  }
+
+  .srOnly {
+      display: none;
+  }
+
+  /* Hamburger Menu */
+
+  .navList {
+      flex-direction: column;
+      gap: clamp(0.625rem, 0.396rem + 0.98vw, 1.25rem);
+  }
+
+  .homeNav .footerNav {
+      background-color: var(--black);
+  }
+
+  .homeNav .footerNav li {
+      color: var(--gray0-dark);
+  }
+
+  .homeNav .footerNav .productArrow::after {
+      background: url("/items/arrowDark.svg");
+  }
+
+  .homeNav .footerNav .openProduct .productMenu a {
+      color: var(--link-productDark);
+  }
+
+  .navListHome > li {
+      color: var(--gray0-dark);
+  }
+
+  .hamburger {
+      position: fixed;
+      top: 0;
+      right: 100%;
+      z-index: 100;
+      width: 250px;
+      height: 100vh;
+      padding: 100px 20px 20px 25px;
+      font-family: "Libre Caslon Display", serif;;
+      font-size: 24px;
+      background-color: #f8f8f8;
+      transition: transform 0.6s;
+      gap: 20px;
+  }
+
+  .hamburger .productArrow::after {
+      top: 16px;
+  }
+
+  .productMenuH li a {
+      font-size: 20px;
+      margin-top: 10px;
+  }
+/*
+  .hamburger li {
+      background-color: transparent;
+  }
+*/
+  .navList li a,
+  .productArrow {
+      padding: 5px 20px 5px 0; 
+  }
+
+  .open .hamburger {
+      transform: translate(250px, 0);
+  }
+
+  .openProduct .productMenu {
+      display: block;
+      position: static;
+      z-index: 0;
+      background: none;
+      opacity: 1;
+  }
+
+}

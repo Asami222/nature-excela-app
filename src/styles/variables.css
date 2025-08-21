@@ -1,0 +1,33 @@
+:root {
+  /* color */
+  --white: #ffffff;
+  --gray0-dark: #f0f0f0;
+  --gray1-dark: #e1e1e1;
+  --gray2-dark: #d9d9d9;
+  --lightGray: #a9a9a9;
+  --darkGray: #3d3d3d;
+  --black: #171313;
+  --skincare: #84aec6;
+  --face: #dbc29c;
+  --eye: #a897be;
+  --rip: #c69399;
+  --brush: #a78373;
+  --link-product: #5e270f;
+  --link-productDark: #EAD0C5;
+
+  /* Typography */
+  --body: clamp(1rem, 0.954rem + 0.2vw, 1.125rem); /* 16-20px */
+  --display: clamp(2.25rem, 1.13rem + 4.78vw, 5.313rem); /* 36-85px */
+  --heading2: clamp(0.813rem, 0.561rem + 1.07vw, 1.5rem); /* 13-24px */
+  --heading3: clamp(1.25rem, 1.159rem + 0.39vw, 1.5rem); /* 20-24px */
+  --nav: 16px; 
+  --topLinkMenu: clamp(1.25rem, 0.536rem + 1.49vw, 1.875rem); /* 20-30px 画面幅 768px - 1440px*/ 
+  --productMenu: clamp(1rem, 0.817rem + 0.78vw, 1.5rem); /* 16-24px */
+  --productColumn: clamp(0.813rem, 0.698rem + 0.49vw, 1.125rem); /* 13-18px */
+
+  /* Border */
+  --border-radius: 50px;
+  --border: 1px solid var(--gray0-dark);
+  --border-black: 1px solid var(--black);
+
+}

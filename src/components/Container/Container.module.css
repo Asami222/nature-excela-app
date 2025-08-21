@@ -1,0 +1,16 @@
+.default {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+.large {
+  composes: default;
+  max-width: 1320px;
+}
+@media (max-width: 768px) {
+  .default {
+      width: 86%;
+  }
+  .large {
+      width: 100%;
+  }
+}
