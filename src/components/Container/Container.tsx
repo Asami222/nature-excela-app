@@ -1,8 +1,8 @@
-import styles from 'styles/container.module.css'
+import styles from './Container.module.css'
 
 interface ContainerProps {
   children: React.ReactNode;
-  large: boolean
+  large?: boolean
 }
 
 export default function Container({ children, large = false }: ContainerProps) {

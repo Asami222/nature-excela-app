@@ -1,10 +1,12 @@
-import '../styles/globals.css';
 import '../styles/variables.css';
+import '../styles/globals.css';
 import Providers from "./providers";
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import type { Cart } from "@/store/cart";
 import { Noto_Serif_JP } from "next/font/google";
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 
 const notoSerifJP = Noto_Serif_JP({
   subsets: ["latin"], // 日本語も含まれる 
@@ -36,13 +38,17 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="ja" className={`${notoSerifJP.variable}`}>
+    <html lang="ja" className={`${notoSerifJP.className}`}>
       <head>
         {/* リセットCSS */}
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
       </head>
-      <body className="text-neutral-950 text-body">
-        <Providers initialCart={initialCart}>{children}</Providers>
+      <body>
+        <Providers initialCart={initialCart}>
+          <Header isHome/>
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

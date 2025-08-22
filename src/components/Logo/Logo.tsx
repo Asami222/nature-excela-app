@@ -1,8 +1,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import styles from 'styles/logo.module.css'
-import { useMediaQuery } from 'react-responsive'
+import styles from './Logo.module.css'
+//import { useMediaQuery } from 'react-responsive'
 
 
 export function HeaderLogoSimple() {
@@ -23,40 +23,52 @@ export function HeaderLogoSimple() {
 }
 
 export function FooterLogo({isHome = false}) {
-
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
     
     return (
         <div className={styles.footerLogo}>
             <Link href="/">
                 { isHome ?
-                    ( isMobile ?
+                    <>
+                        {/* モバイル用 */}
                         <Image
                             src="/home/LogoHomeM.svg"
                             alt="Nature Excela"
-                            layout="responsive"
                             width={250}
                             height={41}
                             sizes='(min-width: 768px) 250px, 50vw'
+                            className={styles.footerLogoMobile}
+                            style={{
+                                width: '100%',
+                                height: 'auto',
+                            }}
                         />
-                        :
+                        {/* PC用 */}
                         <Image
                         src="/home/LogoFooter.svg"
                         alt="Nature Excela"
-                        layout="responsive"
                         width={347}
                         height={50}
                         sizes='(min-width: 1260px) 347px, (min-width: 768px) 33vw, 50vw'
+                        className={styles.footerLogoPc}
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                        }}
+                        priority
                         />
-                    )
+                    </>
                     :
                     <Image
                         src="/home/LogoFooter.svg"
                         alt="Nature Excela"
-                        layout="responsive"
                         width={347}
                         height={50}
                         sizes='(min-width: 1260px) 347px, (min-width: 768px) 33vw, 50vw'
+                        style={{
+                            width: '100%',
+                            height: 'auto',
+                        }}
+                        priority
                     />
                 } 
             </Link>

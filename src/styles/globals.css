@@ -1,9 +1,11 @@
-@import "~tailwindcss/base";
-@import "~tailwindcss/components";
-@import "~tailwindcss/utilities";
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-  
+ 
+
   h3 {
     @apply text-heading3 font-normal;
   }
@@ -11,10 +13,12 @@
     @apply text-body;
   }
 }
-
+*/
 /* 基本設定 */
 body {
-  font-family: theme("fontFamily.serif");
+  color: var(--black);
+  font-family: "Noto Serif JP", serif;
+  font-size: var(--body);
   font-weight: 400;
   font-feature-settings: "palt";
 }

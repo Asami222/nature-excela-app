@@ -8,10 +8,11 @@ const config = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",   // src も使っているなら追加
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./.storybook/**/*.{js,ts,jsx,tsx,mdx}",
+    "./styles/**/*.{css}",
   ],
   theme: {
     screens: {
-      sm: { max: "767px"},
+      sm: { max: "768px"},
       md: { max: "1260px"},
       lg: { max: "1320px"}
     },

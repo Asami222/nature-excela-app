@@ -1,11 +1,24 @@
 "use client";
 
+import { Libre_Caslon_Display } from "next/font/google";
 import cx from "classnames"
 import Link from "next/link";
 import { useState } from "react";
 import styles from './Nav.module.css'
 
-export default function Nav({ isHeader = false, isHome = false}) {
+const libreCaslonDisplay = Libre_Caslon_Display({
+    subsets: ["latin"],  
+    variable: "--libre-caslon-display",
+    weight: ["400"], 
+    display: "swap",
+  });
+
+interface NavProps {
+    isHeader?: boolean;
+    isHome?: boolean;
+}
+
+export default function Nav({ isHeader = false, isHome = false}: NavProps) {
 
     /** product menu */
     const[isAction, setAction] = useState(false)
@@ -37,7 +50,7 @@ export default function Nav({ isHeader = false, isHome = false}) {
                 <span className={styles.bar}></span>
                 <span className={styles.srOnly}>MENU</span>
             </button>}
-            <ul className={cx(styles.navList,isHeader ? styles.hamburger : styles.footerNav)}>
+            <ul className={cx(styles.navList,isHeader ? (libreCaslonDisplay.className, styles.hamburger) : styles.footerNav)}>
                 <li>
                     <Link href="/" onClick={closeNav}>
                     HOME
