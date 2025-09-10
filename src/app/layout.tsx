@@ -1,12 +1,9 @@
 import '../styles/variables.css';
 import '../styles/globals.css';
 import Providers from "./providers";
-import { cookies } from "next/headers";
 import type { Metadata } from "next";
-import type { Cart } from "@/store/cart";
 import { Noto_Serif_JP } from "next/font/google";
-import Header from '@/components/Header/Header';
-import Footer from '@/components/Footer/Footer';
+import { getInitialCart } from '@/lib/cart';
 
 const notoSerifJP = Noto_Serif_JP({
   subsets: ["latin"], // 日本語も含まれる 
@@ -24,18 +21,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // cookies() を await
-  const cookieStore = await cookies();
-  const cartCookie = cookieStore.get("cart")?.value || null;
 
-  let initialCart: Cart = { products: [] };
-  if (cartCookie) {
-    try {
-      initialCart = JSON.parse(cartCookie) as Cart;
-    } catch (e) {
-      console.error("Invalid cart cookie", e);
-    }
-  }
+  const initialCart = await getInitialCart();
+  //現在のURLパスを取得（サーバーコンポーネントの書き方）
+  //const pathname = (await import("next/navigation")).usePathname?.() ?? "/";
+  //const isHome = pathname === "/";
 
   return (
     <html lang="ja" className={`${notoSerifJP.className}`}>
@@ -45,9 +35,7 @@ export default async function RootLayout({
       </head>
       <body>
         <Providers initialCart={initialCart}>
-          <Header isHome/>
-          <main>{children}</main>
-          <Footer />
+          {children}
         </Providers>
       </body>
     </html>

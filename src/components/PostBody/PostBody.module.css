@@ -1,0 +1,45 @@
+
+.stack h2 {
+  font-size: var(--body);
+  font-weight: 300;
+  margin: 0 auto 30px;
+  padding-left: 220px;
+  margin-left: clamp(1rem, 0.748rem + 1.07vw, 1.688rem);
+  
+}
+
+.stack h3 {
+  margin-bottom: clamp(0.625rem, 0.511rem + 0.49vw, 0.938rem);
+  font-weight: 400;
+}
+
+.stack h3 span {
+  padding-right: 0.5em;
+}
+
+.stack p {
+  width: clamp(20rem, 6.738rem + 56.59vw, 56.25rem);
+  font-weight: 300;
+  line-height: 1.9;
+  text-align: justify;
+}
+
+.stack dl {
+  padding: 10px 0;
+}
+
+.stack dt {
+  flex: 0 0 30%;
+
+}
+
+@media (max-width: 768px) {
+  .stack h2 {
+      padding-left: 0;
+      margin-left: 0;
+  }
+
+  .stack p {
+      width: 100%;
+  }
+}

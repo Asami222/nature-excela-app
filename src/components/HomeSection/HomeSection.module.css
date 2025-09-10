@@ -1,0 +1,352 @@
+
+/* 共通 -------------------------------------------*/
+.container {
+  display: grid;
+  width: 100%;
+  color: var(--gray0-dark);
+}
+
+.menu {
+  display: grid;
+  height: 100%;
+}
+
+.menu > * {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding-left: clamp(2.188rem, 0.701rem + 6.34vw, 6.25rem);
+}
+
+.container h2 {
+  font-family: "Libre Caslon Display", serif;
+  font-weight: 400;
+  font-size: clamp(2.188rem, 1.197rem + 4.23vw, 5rem);
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.menu p a {
+  font-size: var(--topLinkMenu);
+  font-weight: 300;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+}
+
+.exist {
+  display: inline-block;
+  font-size: var(--productColumn);
+  padding: 0.05em 0.5em 0.15em;
+  background-color: #A1A27D;
+  border-radius: 1px;
+  margin: 0 0.5em;
+}
+/* スキンケア ----------------------------------------*/
+.skincare {
+  grid-template-columns: 1fr 39.6%;
+  align-items: center;
+}
+
+.skincare .menu {
+  grid-template-rows: repeat(5,1fr);
+}
+
+.skincare .menu > * {
+  border-bottom: var(--border);
+}
+
+.skincare .img {
+  border-left: var(--border);
+  border-bottom: var(--border);
+}
+
+/* フェイス ----------------------------------------*/
+.face {
+  width: 79.2%;
+  grid-template-rows: auto auto;
+  margin: 0 0 0 auto;
+}
+
+.face .menu {
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(3,1fr);
+}
+
+.face .menu > * {
+  padding: clamp(0.93rem, -0.49rem + 2.9vw, 2.18rem) clamp(2.188rem, 1.747rem + 1.88vw, 3.438rem);
+  border-top: var(--border);
+  border-left: var(--border);
+}
+
+.face .menu p:first-child {
+  border-top: none;
+}
+
+.face .menu h2 {
+  border-top: none;
+}
+
+.face .img {
+  border-top: var(--border);
+  border-left: var(--border);
+}
+
+/* アイ ----------------------------------------*/
+.eye {
+  grid-template-columns: 1fr 65.2%;
+  align-items: center;
+}
+
+.eye .titleFlex {
+  display: grid;
+  grid-template-columns: 1fr 71.8%;
+  align-items: center;
+  text-align: center;
+  border-top: var(--border);
+  border-left: var(--border);
+  border-bottom: var(--border);
+}
+
+.eye .menu > * {
+  border-top: var(--border);
+}
+
+.eye .menu p:last-child {
+  border-bottom: var(--border);
+}
+
+/* リップ ----------------------------------------*/
+.rip {
+  width: 79.1%;
+  grid-template-columns: 44.15% 1fr;
+  align-items: center;
+}
+
+.rip .menu {
+  order: 2;
+}
+
+.rip .menu > * {
+  padding-left: clamp(2.188rem, 1.747rem + 1.88vw, 3.438rem);
+  border-top: var(--border);
+  border-right: var(--border);
+}
+
+.rip .menu p:first-child {
+  border-top: none;
+}
+
+.rip .titleFlex {
+  order: 1;
+  text-align: end;
+  border-right: var(--border);
+}
+
+.rip h2 {
+  padding-right: 18%;
+}
+
+.rip .img {
+  border-right: none;
+}
+
+/* ブラシ ----------------------------------------*/
+.brush {
+  grid-template-columns: 60.4% 1fr;
+  align-items: center;
+}
+
+.brush .menu {
+  order: 2;
+}
+
+.brush .menu > * {
+  padding-left: clamp(2.188rem, 1.747rem + 1.88vw, 3.438rem);
+  border-top: var(--border);
+}
+
+.brush .titleFlex {
+  display: grid;
+  grid-template-columns: 57.8% 1fr;
+  align-items: center;
+  text-align: center;
+  border-top: var(--border);
+  border-right: var(--border);
+  order: 1;
+}
+
+.brush .titleFlex h2 {
+  order: 2;
+}
+
+.brush .img {
+  order: 1;
+}
+
+@media (max-width: 768px) {
+
+  /* 共通 -------------------------------------------*/
+  .container {
+      grid-template-columns: 1fr;
+  }
+
+  .container h2 {
+      font-size: 35px;
+      text-align: center;
+      padding: 10px; 
+  }
+
+  .existFlex {
+      display: flex;
+  }
+
+  .skincare .img,
+  .face .img,
+  .rip .img {
+      position: relative;
+      width: 100%;
+      height: 120px;
+  }
+
+  .imgNone {
+      height: 0;
+  }
+
+  .menuContainer {
+      display: grid;
+      grid-template-columns: 1fr 35px;
+  }
+  .menuContainer > :first-child {
+      order: 1;
+  }
+
+  .colorBox {
+      background-color: var(--color-box);
+      order: 2;
+  }
+
+  /* スキンケア ----------------------------------------*/
+  .skincare h2 {
+      order: 2;
+  }
+
+  .skincare .menuContainer {
+      order: 3;
+  }
+
+  .skincare .menu {
+      height: 220px;
+      grid-template-rows: repeat(4,1fr);
+  }
+
+  .skincare .existFlex {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+  }
+
+  .skincare .img {
+      border-left: none;
+      border-bottom: none;
+      order: 1;
+  }
+
+  /* フェイス ----------------------------------------*/
+  .face {
+      width: 100%;
+      grid-template-rows: none;
+      margin: 0
+  }
+
+  .face .menu {
+      height: 275px;
+      grid-template-columns: none;
+      grid-template-rows: repeat(5,1fr);
+  }
+
+  .face .menu > * {
+      border-left: none;
+  }
+
+  .face .img {
+      border-top: none;
+      border-left: none;
+  }
+
+  /* アイ ----------------------------------------*/
+  .eye .menu {
+      height: 385px;
+      grid-template-rows: repeat(7,1fr);
+  }
+
+  .eye .menu > * {
+      padding-left: 0;
+      padding-right: 35px;
+      justify-content: flex-end;
+  }
+
+  .eye .menu p:first-child {
+      border-top: none;
+  }
+
+  .eye .menu p:last-child {
+      border-bottom: var(--border);
+  }
+
+  .eye .menuContainer {
+      grid-template-columns: 35px 1fr;
+  }
+
+  .eye .menuContainer > :first-child {
+      order: 2;
+  }
+
+  .eye .colorBox {
+      order: 1;
+  }
+
+  /* リップ ----------------------------------------*/
+  .rip {
+      width: 100%;
+  }
+
+  .rip .menu {
+      height: 330px;
+      grid-template-rows: repeat(6,1fr);
+  }
+
+  .rip .menu > * {
+      padding-left: 0;
+      padding-right: 35px;
+      justify-content: flex-end;
+      border-right: none;
+  }
+
+  .rip .menuContainer {
+      grid-template-columns: 35px 1fr;
+  }
+
+  .rip .menuContainer > :first-child {
+      order: 2;
+  }
+
+  .rip .colorBox {
+      order: 1;
+  }
+
+  /* ブラシ ----------------------------------------*/
+ .brush .menu {
+      height: 165px;
+      grid-template-rows: repeat(3,1fr);
+ }
+
+ .brush .menu p:first-child {
+      border-top: none;
+ }
+
+ .brush .menu p:last-child {
+  border-bottom: var(--border);
+}
+ 
+}

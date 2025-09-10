@@ -1,0 +1,18 @@
+.container {
+  padding: clamp(3.125rem, 1.296rem + 7.8vw, 8.125rem) clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem) 0;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 15px;
+  margin-bottom: 70px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+      grid-template-columns: 1fr;
+  }
+}
+

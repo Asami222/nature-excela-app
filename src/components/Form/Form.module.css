@@ -1,0 +1,144 @@
+.form label {
+  line-height: 2;
+}
+
+.form input,
+.form textarea {
+  font-size: clamp(0.938rem, 0.915rem + 0.09vw, 1rem);
+  border: var(--border-black);
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 7px;
+}
+
+.error {
+  font-size: calc(var(--body) * 0.875);
+  line-height: 1.7;
+  margin-bottom: clamp(0.938rem, 0.827rem + 0.47vw, 1.25rem);
+  color: red;
+}
+
+.form input[id="phone"] {
+  margin-bottom: clamp(0.938rem, 0.827rem + 0.47vw, 1.25rem);
+}
+
+.form .privacyFlex input[type="checkbox"]  {
+  margin-bottom: 0;
+}
+
+.form input[type="checkbox"] {
+  width: auto;
+  margin-bottom: clamp(0.938rem, 0.827rem + 0.47vw, 1.25rem);
+}
+
+.form textarea {
+  line-height: 1.5;
+  height: 190px;
+}
+
+.form select {
+  width: 40%;
+  font-size: clamp(0.938rem, 0.915rem + 0.09vw, 1rem);
+  border: var(--border-black);
+  padding: 0.2em;
+  border-radius: 5px;
+  margin-bottom: clamp(0.938rem, 0.827rem + 0.47vw, 1.25rem);
+  -moz-appearance: menulist;
+  -webkit-appearance: menulist;
+}
+
+.form select::-ms-expand {
+  display: block;
+}
+
+.privacy {
+  text-decoration: underline;
+  padding-bottom: 5px;
+  color: var(--darkGray);
+}
+
+.form .sending {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.form button {
+  padding: 20px 100px;
+  border-radius: 5px;
+  color: var(--white);
+  background: linear-gradient(270deg,#161E18 0%, #243227 78%, #2C5F37 90%, #1D8C35 100%);
+  background-position: 99%, 50%;
+  background-size: 200% auto;
+  transition:  all 0.3s ease-out; 
+}
+
+.form button:hover {
+  color: var(--white);
+  background-position: 1% 50%;
+}
+
+.button {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.required {
+  display: flex;
+  align-items: center;
+  gap:5px;
+}
+
+.required::after {
+  content: "必須";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  padding: 3px 5px;
+  color: var(--black);
+  background-color: var(--gray1-dark);
+}
+
+.privacyFlex {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.625rem, 0.405rem + 0.94vw, 1.25rem);
+}
+
+.privacyFlex input {
+  margin-bottom: 0;
+}
+
+.afterSubmit {
+  padding: 1em;
+  margin: 20px 0;
+  border: var(--border-black);
+  border-radius: 5px;
+  font-weight: 300;
+}
+.afterSubmit span {
+  font-weight: 600;
+}
+.afterSubmit > p:nth-of-type(1) {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .form select {
+      width: 100%;
+  }
+
+  .privacy {
+      text-align: center;
+  }
+
+  .privacyFlex {
+      flex-direction: column;
+  }
+
+  .error {
+      text-align: center;
+  }
+}

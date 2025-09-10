@@ -32,6 +32,41 @@
 
 }
 
+/* 両端揃え */
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 横並び（上揃え）*/
+.sideBySide {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .sideBySide {
+      flex-direction: column;
+  }
+}
+
+/* 横並び（中央揃え）*/
+.sideBySideCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .sideBySideCenter {
+      flex-direction: column;
+      align-items: start;
+  }
+}
 
 /* 両端揃え */
 .spaceBetween {
@@ -68,3 +103,6 @@
       align-items: start;
   }
 }
+
+
+

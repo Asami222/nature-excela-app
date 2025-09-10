@@ -1,0 +1,43 @@
+.heroContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  height: clamp(10.625rem, 4.223rem + 27.32vw, 28.125rem);
+  padding: 10%;
+  margin: 0 auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-family: "Libre Caslon Display", serif;
+  font-weight: 400;
+  font-size: var(--display);
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.titleAbout {
+  width: clamp(13.75rem, 6.41rem + 31.32vw, 33.813rem);
+}
+
+.subtitle {
+  position: relative;
+  font-size: var(--heading2);
+}
+
+.subtitleAbout {
+  position: relative;
+  color: var(--white);
+  font-size: var(--heading2);
+  margin-top: 1.2%;
+}
+
+.white {
+  color: var(--white);
+}

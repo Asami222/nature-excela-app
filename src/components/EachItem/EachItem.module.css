@@ -1,0 +1,122 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--black);
+}
+
+.img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*
+.memberImg {
+  position: relative; // Image fill 用に必要 
+  width: 100%;        // 横幅は親に合わせる 
+  height: 0;          // 高さは padding-bottom で比率を決める 
+  padding-bottom: 70.77%; // 高さ ÷ 幅 * 100 → 920 / 1300 * 100 
+}
+*/
+.memberNewImg {
+  align-items:start;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.625rem, 0.396rem + 0.98vw, 1.25rem);
+  margin-bottom: 15px;
+}
+
+.colImg {
+  width: clamp(5rem, 2.713rem + 9.76vw, 11.25rem);
+  margin: clamp(1.875rem, 1.418rem + 1.95vw, 3.125rem) auto 0;
+}
+
+.cream {
+  width: clamp(9.688rem, 5.686rem + 17.07vw, 20.625rem);
+}
+
+.serum {
+  width: clamp(3.125rem, 0.838rem + 9.76vw, 9.375rem);
+}
+
+.colorImg {
+  position: relative;
+  width: clamp(14.625rem, 9.732rem + 20.88vw, 28rem);
+  padding-right: clamp(1.875rem, 1.418rem + 1.95vw, 3.125rem);
+  margin: clamp(1.875rem, 1.418rem + 1.95vw, 3.125rem) auto 0;
+}
+
+.colorImg::after,
+.colorImgMember::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  content: "";
+  width: clamp(1.875rem, 1.418rem + 1.95vw, 3.125rem);
+  height: clamp(1.875rem, 1.418rem + 1.95vw, 3.125rem);
+  background-color: var(--color-box);
+}
+
+.text {
+  padding: clamp(0.625rem, 0.396rem + 0.98vw, 1.25rem) clamp(1.063rem, 0.811rem + 1.07vw, 1.75rem);
+}
+
+.colText {
+  padding-top: clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem);
+  text-align: center;
+}
+
+.colorText {
+  padding-top: clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem);
+  padding-bottom: clamp(1.063rem, 0.811rem + 1.07vw, 1.75rem);
+}
+
+.colText button {
+  margin: 0 auto;
+}
+
+.date {
+ font-size: var(--productColumn);
+ font-weight: 300;
+ margin-bottom: clamp(0.625rem, 0.282rem + 1.46vw, 1.563rem);
+}
+
+.text h2 {
+  font-size: var(--heading3);
+  font-weight: 500;
+}
+
+.price {
+  font-size: clamp(1rem, 0.909rem + 0.39vw, 1.25rem);
+  font-weight: 400;
+  padding-left: 1%;
+}
+
+.btn {
+ display: block;
+ padding: clamp(0.375rem, 0.284rem + 0.39vw, 0.625rem) clamp(0.5rem, 0.409rem + 0.39vw, 0.75rem);
+ border-radius: var(--border-radius);
+ font-size: 13px;
+ line-height: 1;
+ color: var(--white);
+ background: linear-gradient(270deg,#1E1616 0%, #322424 78%, #5F2C2C 90%, #8C1D1D 100%);
+ background-position: 99%, 50%;
+ background-size: 200% auto;
+ transition:  all 0.3s ease-out; 
+}
+
+.btn:hover {
+  color: var(--white);
+  background-position: 1% 50%;
+}

@@ -100,6 +100,7 @@
   /*padding-bottom: clamp(0.438rem, 0.369rem + 0.29vw, 0.625rem);
   border-bottom: 2px solid var(--black);
   */
+  height: auto;
 }
 
 .footerLogo:hover {

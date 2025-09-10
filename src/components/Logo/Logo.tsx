@@ -12,7 +12,6 @@ export function HeaderLogoSimple() {
                     <Image
                         src="/logo/headerLogo.svg"
                         alt="Nature Excela"
-                        layout="fixed"
                         width={55}
                         height={29}
                         sizes='(min-width: 1320px) 1320px, 100vw'

@@ -22,6 +22,12 @@
   font-weight: 500;
 }
 
+.face {
+  position: relative;
+  width: auto;
+  height: 100%;
+}
+
 .faceMobile {
   display: none;
 }

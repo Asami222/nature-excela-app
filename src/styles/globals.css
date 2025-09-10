@@ -15,12 +15,25 @@
 }
 */
 /* 基本設定 */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   color: var(--black);
   font-family: "Noto Serif JP", serif;
   font-size: var(--body);
   font-weight: 400;
   font-feature-settings: "palt";
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+main {
+  flex: 1; /* メインコンテンツがない場合も空間を埋める */
 }
 
 h2 {
@@ -55,3 +68,5 @@ img {
 span > img {
   transition: 0.2s;
 }
+
+

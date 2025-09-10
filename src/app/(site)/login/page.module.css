@@ -1,0 +1,143 @@
+.wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: clamp(3.125rem, 1.296rem + 7.8vw, 8.125rem) 0 64px;
+}
+
+.wrapper h1 {
+  font-size: clamp(1.5rem, 1.148rem + 1.5vw, 2.5rem);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.form label {
+  line-height: 2;
+}
+
+.form input {
+  font-size: clamp(0.938rem, 0.915rem + 0.09vw, 1rem);
+  border: var(--border-black);
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 7px;
+}
+
+.error {
+  font-size: calc(var(--body) * 0.875);
+  line-height: 1.7;
+  color: red;
+  text-align: center;
+}
+
+.form button {
+  width: 100%;
+  padding: 8px 20px;
+  border-radius: 5px;
+  color: var(--white);
+  background: linear-gradient(270deg,#161E18 0%, #243227 78%, #2C5F37 90%, #1D8C35 100%);
+  background-position: 99%, 50%;
+  background-size: 200% auto;
+  transition:  all 0.3s ease-out; 
+}
+
+.form button:hover {
+  color: var(--white);
+  background-position: 1% 50%;
+}
+
+.button {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.required {
+  display: flex;
+  align-items: center;
+  gap:5px;
+}
+
+.emailWrapper {
+  margin-bottom: 8px;
+}
+
+.googleButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border: var(--border-black);
+  padding-block: 8px;
+  border-radius: 4px;
+}
+
+.googleButton:hover {
+  background-color: rgb(249 250 251);
+}
+
+.googleButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.newUser {
+  font-size: var(--productColumn);
+  text-align: center;
+  margin-top: 24px;
+}
+
+.newUser a {
+  text-decoration: underline;
+}
+
+.guest {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.guest button {
+  color: #2C5F37;
+  font-weight: 500;
+  padding: 4px 16px;
+  border: 1px solid #2C5F37;
+  border-radius: 4px;
+}
+
+.guest button:hover {
+  background-color: rgb(249 250 251);
+}
+
+.lineWrapper {
+  display: flex;
+  align-items: center;
+  padding-block: 48px;
+}
+
+.lineWrapper hr {
+  flex: 1;
+}
+
+.lineWrapper span {
+  padding-inline: 8px;
+  color: var(--darkGray);
+  font-size: var(--productColumn);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 86%;
+  }
+
+  .wrapper h1 {
+    margin-bottom: 32px;
+  }
+
+  .form select {
+      width: 100%;
+  }
+
+  .lineWrapper {
+    padding-block: 32px;
+  }
+}

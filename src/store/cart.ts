@@ -3,16 +3,14 @@
 import { atom } from "jotai";
 
 export interface Product {
-  id: number;
+  id: string;
   image: {
     url: string;
     alt: string;
-    width: number;
-    height: number;
-    widthB?: number;
-    heightB?: number;
+    width?: number;
+    height?: number;
   };
-  date: string;
+  date?: string;
   name: string;
   price: number;
   quantity: number;

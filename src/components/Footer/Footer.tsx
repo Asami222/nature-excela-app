@@ -5,7 +5,7 @@ import Nav from "../Nav/Nav";
 import styles from './Footer.module.css'
 import Container from "../Container/Container";
 import cx from "classnames"
-import Sns from "../Sns";
+import Sns from "../Sns/Sns";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "700"] })
 
@@ -15,7 +15,7 @@ export default function Footer({isHome = false}) {
         <footer className={cx(styles.wrapper, isHome && styles.homeWrapper)}>
             <Container>
             <div className={styles.footerFlex}>
-                <div className={"flex flex-row justify-between"}>
+                <div className={cx("sideBySide", styles.flexContainer)}>
                     {isHome ? <FooterLogo isHome={isHome} /> : <FooterLogo />}
                         <Nav isHome={isHome}/> 
                     <div className={styles.sns}>

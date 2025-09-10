@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 .large {
-  composes: default;
+  margin: 0 auto;
   max-width: 1320px;
 }
 @media (max-width: 768px) {

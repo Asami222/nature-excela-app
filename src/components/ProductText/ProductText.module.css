@@ -1,0 +1,25 @@
+.container {
+  margin-bottom: 24px;
+}
+
+.container h1 {
+  font-family: "Libre Caslon Display", serif;
+  font-size: clamp(2rem, 1.817rem + 0.78vw, 2.5rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.container p {
+  font-size: var(--body);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+@media screen and (max-width: 768px) {
+
+  .container {
+    margin-bottom: 16px;
+  }
+
+}

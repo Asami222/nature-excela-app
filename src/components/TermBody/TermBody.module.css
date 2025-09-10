@@ -1,0 +1,87 @@
+.stack {
+  padding: clamp(3.125rem, 1.296rem + 7.8vw, 8.125rem) clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem) 40px;
+}
+
+.stack h1 {
+  font-size: clamp(1.5rem, 1.324rem + 0.75vw, 2rem);
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.stack section {
+  margin: 30px 0;
+}
+
+.stack section:last-of-type {
+  margin-bottom: 0;
+}
+
+.stack h2 {
+  font-size: var(--heading3);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.stack h2 {
+  margin-top: 20px;
+}
+
+.stack hr {
+  margin-bottom: 20px;
+}
+
+.stack p,
+.stack li {
+  color: #252722;
+  line-height: 1.7;
+  padding-bottom: 20px;
+  text-align: justify;
+}
+
+.stack li {
+  margin-left: clamp(1.563rem, 1.452rem + 0.47vw, 1.875rem);
+}
+
+.stack ol > li > ol{
+  counter-reset: listnum;
+  list-style: none;
+  padding-top: 20px;
+}
+
+.stack ol > li > ol > li {
+  margin-left: 1.3em;
+  text-indent: -1.3em;
+}
+
+.stack ol > li > ol > li::before {
+  counter-increment: listnum;
+  content: "(" counter(listnum) ")";
+}
+
+.stack ul {
+  list-style: circle;
+}
+
+.stack > p:last-child {
+  text-align: end;
+}
+
+.stack dt {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.stack dd:nth-of-type(1) {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+
+  .stack {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 20px;
+  }
+
+}

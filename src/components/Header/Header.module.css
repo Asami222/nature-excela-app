@@ -4,30 +4,39 @@
   border-radius: 5px;
 }
 
-.flexContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .flexContainerHeader {
   justify-content: end;
   gap: clamp(1.25rem, -7.864rem + 18.99vw, 8.75rem);
 }
 
-.bag {
+.globalsContainer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.globals {
   display: grid;
   place-items: center;
-  margin-bottom: 5px;
 }
 
 .img {
+  position: relative;
   grid-area: 1/1;
   z-index: 230;
+  width: 25px;
+  height: 25px;
+}
+
+.bagimg {
+  margin-bottom: 4px;
 }
 
 @media (max-width: 768px) {
   .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       padding: 12px 25px;
   }
 
@@ -37,7 +46,11 @@
       z-index: 100;
   }
 
-  .bag {
+  .globalsContainer {
+    gap: 1rem;
+  }
+
+  .globals {
       z-index: 200;
       width: 48px;
       height: 48px;

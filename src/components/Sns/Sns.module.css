@@ -1,0 +1,11 @@
+
+.snsIcon {
+  filter: none; /* デフォルト黒 */
+}
+
+/* Home + モバイル時だけ白 */
+@media (max-width: 768px) {
+  .isHome .snsIcon {
+    filter: invert(1); /* 黒→白 */
+  }
+}

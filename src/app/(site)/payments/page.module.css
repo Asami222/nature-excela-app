@@ -1,0 +1,55 @@
+.wrapper {
+  padding: clamp(3.125rem, 1.296rem + 7.8vw, 8.125rem) clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem) 30px;
+}
+
+.titleWrap {
+  margin-bottom: 30px;
+}
+
+.titleWrap > div {
+  display: flex;
+  justify-content: space-around;
+  width: 65%;
+  height: clamp(5.625rem, 4.745rem + 3.76vw, 8.125rem);
+  align-items: center;
+  border: 1px dashed;
+  border-radius: 5px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: var(--white);
+  text-align: center;
+  background: linear-gradient(270deg,#161E18 0%, #243227 78%, #2C5F37 90%, #1D8C35 100%);
+  background-position: 99%, 50%;
+  background-size: 200% auto;
+  transition:  all 0.3s ease-out; 
+}
+
+.button button {
+  color: var(--white);
+}
+
+.button:hover {
+  color: var(--white);
+  background-position: 1% 50%;
+}
+
+@media (max-width: 768px) {
+
+  .wrapper {
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  .titleWrap > div {
+      width: 100%;
+      margin-top: 20px;
+  }
+
+  .productContainer p {
+      text-align: center;
+  }
+
+}

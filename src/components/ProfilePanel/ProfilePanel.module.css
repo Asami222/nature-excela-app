@@ -1,0 +1,44 @@
+.module {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.photo {
+  display: grid;
+  justify-items: center;
+}
+
+.photo img {
+  border-radius: 9999px;
+  cursor: pointer;
+  object-fit: cover;
+  object-position: center;
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.text h2 {
+  font-size: var(--topLinkMenu);
+  line-height: 1.5;
+}
+
+@media screen and (max-width: 768px) {
+
+  .module {
+    gap: 8px;
+  }
+
+  .photo img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .text h2 {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+}

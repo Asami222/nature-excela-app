@@ -1,0 +1,10 @@
+.noProduct {
+  padding: clamp(12.5rem, 9.07rem + 14.63vw, 21.875rem) 20px;
+  text-align: center;
+}
+
+.noProduct p {
+  display: inline-block;
+  padding: 30px clamp(5.625rem, 3.11rem + 10.73vw, 12.5rem);
+  border: 1px solid var(--black);
+}

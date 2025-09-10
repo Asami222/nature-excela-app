@@ -1,0 +1,36 @@
+.headContainer {
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.headContainer > :first-child {
+  grid-area: 1/1;
+  justify-self: end;  /* 横方向の右寄せ */
+  align-self: start;  /* 縦方向の上寄せ */
+  z-index: 1;
+}
+
+.headContainer > :nth-child(2) {
+  grid-area: 1/1;  /* 縦いっぱいに配置（必要に応じて） */
+  justify-self: start; /* 横は左寄せ */  /* 縦は中央寄せ（必要なら start に変更可） */
+  align-self: center;
+  z-index: 0;
+  width: 100%;  
+}
+
+.mainContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--black);
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+
+  .headContainer > :first-child {
+    justify-self: start;
+  }
+
+}

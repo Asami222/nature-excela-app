@@ -1,0 +1,16 @@
+.wrapper {
+  padding: 70px clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem);
+}
+
+@media (max-width: 768px) {
+
+  .wrapper {
+    padding: 70px 0;
+  }
+
+  .container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+}

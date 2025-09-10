@@ -1,0 +1,25 @@
+.container {
+  display: grid;
+  place-items: center;
+}
+.circle {
+  grid-area: 1/1;
+}
+
+.text {
+  grid-area: 1/1;
+  z-index: 10;
+}
+
+.container p {
+  width: clamp(12.188rem, 10.473rem + 7.32vw, 16.875rem);
+  font-size: var(--productColumn);
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.7;
+   
+}
+
+.container p:last-of-type {
+  margin-bottom: 0rem;
+}

@@ -1,0 +1,42 @@
+.wrapper {
+  padding: 0 clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem);
+}
+
+.mainFlex {
+  justify-content: flex-start;
+  gap: clamp(1rem, 0.748rem + 1.07vw, 1.688rem);
+}
+
+.mainFlex:first-of-type {
+  margin-bottom: 90px;
+}
+
+.mainImage {
+  width: clamp(11.25rem, 10.335rem + 3.9vw, 13.75rem);
+}
+.aboutSection {
+  padding: 75px 0;
+}
+
+.companySection {
+  width: 50%;
+  padding: 30px clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem);
+  margin: 0;
+  border: 1px solid var(--black);
+}
+
+.companyContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .companySection {
+    width: 100%;
+  }
+}

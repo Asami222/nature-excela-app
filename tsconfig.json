@@ -17,10 +17,11 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    //"typeRoots": ["./node_modules/@types", "./src/types"],
     "baseUrl": "./",
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ],
       "utils/*": [
         "src/utils/*"

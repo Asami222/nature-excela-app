@@ -1,0 +1,80 @@
+.menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profileButton {
+  display: grid;
+  align-self: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  max-width: auto 0;
+}
+
+.globals {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.img {
+  position: relative;
+  grid-area: 1/1;
+  z-index: 230;
+  width: 25px;
+  height: 25px;
+}
+
+.items {
+  position: absolute;
+  right: 0;
+  padding-block: 8px;
+  margin-top: 8px;
+  background: white;
+  border: 1px solid var(--gray1-dark);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  min-width: 150px;
+  z-index: 50;
+}
+
+.items:focus {
+  outline: none;
+}
+
+.items a:hover {
+  opacity: 1;
+}
+
+.item:focus-visible {
+  outline: 2px solid gray;
+  outline-offset: 2px;
+}
+
+.item {
+  display: block;
+  width: 80%;
+  padding: 8px 10px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.active {
+  background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+
+  .items {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .item {
+    padding: 10px 10px;
+  }
+}

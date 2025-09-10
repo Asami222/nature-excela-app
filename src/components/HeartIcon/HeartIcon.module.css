@@ -1,0 +1,41 @@
+.button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(2rem, 0.857rem + 2.38vw, 3rem);
+  height: clamp(2rem, 0.857rem + 2.38vw, 3rem);
+  border: 1px solid #171313;
+  border-radius: 50%;
+}
+.button svg {
+  width: 70%;
+  height: auto;
+  overflow: visible;
+}
+
+.icon {
+  transition: fill 0.5s;
+  fill: #fff;
+}
+
+.isFavorite {
+  fill: var(--black);
+}
+
+.notFavorite {
+  fill: #fff;
+}
+
+.button:hover .icon {
+  fill: var(--black);
+}
+
+@media (max-width: 768px) {
+  .button {
+    width: 32px;
+    height: 32px;
+  }
+}
