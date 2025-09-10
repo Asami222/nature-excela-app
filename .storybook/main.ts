@@ -1,7 +1,7 @@
 // .storybook/main.ts
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import autoprefixer from "autoprefixer"
+//import autoprefixer from "autoprefixer"
 
 const config: StorybookConfig = {
   stories: [
