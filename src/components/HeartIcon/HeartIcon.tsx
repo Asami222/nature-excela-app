@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import cn from "classnames";
+import cx from "classnames";
 import styles from "./HeartIcon.module.css";
 
 export default function HeartButton({
@@ -37,7 +37,7 @@ export default function HeartButton({
                 ease: "easeOut",
               }}
               style={{ transformOrigin: "50% 50%" }}
-              className={cn(styles.icon, isFavorite ? styles.isFavorite : styles.notFavorite)}
+              className={cx(styles.icon, isFavorite ? styles.isFavorite : styles.notFavorite)}
               d="M41.51,11.63a9.67,9.67,0,0,0-13.7,0L24,15.43l-3.81-3.8a9.69,9.69,0,0,0-13.7,13.7L24,42.84l13.7-13.7h0l3.81-3.81A9.69,9.69,0,0,0,41.51,11.63Z"
               fill="#fff"
               stroke="#171313"
