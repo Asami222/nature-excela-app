@@ -1,23 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "allowJs": true,
-    "skipLibCheck": false,
     "strict": true,
-    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "allowJs": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "noEmit": true,
+    "skipLibCheck": true,
     "jsx": "preserve",
-    "incremental": true,
-    //"typeRoots": ["./node_modules/@types", "./src/types"],
     "baseUrl": "./",
     "paths": {
       "@/*": [
@@ -29,8 +28,10 @@
     },
     "types": [
       "node",
+      "vitest",
       "@storybook/react"
     ],
+    "incremental": true,
     "plugins": [
       {
         "name": "next"
@@ -42,9 +43,14 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/types/**/*.ts"
+    "src/types/**/*.ts",
+    "src/types/**/*.d.ts",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    ".next",
+    "storybook-static"
   ]
 }

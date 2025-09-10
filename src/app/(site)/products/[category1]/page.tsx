@@ -5,13 +5,7 @@ import ProductHero from '@/components/ProductHero/ProductHero';
 type CategoryKey = keyof ProductCategories; 
 // "skincare" | "face" | "eye" | "rip" | "brush"
 
-type Props = {
-  params: {
-    category1: CategoryKey;
-  };
-};
-
-export const NameDict: Record<string, string> = {
+const NameDict: Record<string, string> = {
   "skincare": "基礎化粧品",
   "face": "ベースメイク",
   "eye": "アイメイク",
@@ -19,7 +13,7 @@ export const NameDict: Record<string, string> = {
   "brush": "メイクブラシ"
 }
 
-export default async function ProductPage({ params }: Props) {
+export default async function ProductPage({params}: {params: Promise<{ category1: CategoryKey}>}) {
   const { category1 } =  await params;
 
   const products: CategoryItem[] = productCategories[category1];

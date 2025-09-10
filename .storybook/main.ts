@@ -1,7 +1,6 @@
 // .storybook/main.ts
 import type { StorybookConfig } from "@storybook/nextjs-vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer"
 
 const config: StorybookConfig = {
@@ -27,8 +26,7 @@ const config: StorybookConfig = {
     config.css = config.css || {};
     config.css.postcss = {
       plugins: [
-        tailwindcss,
-        autoprefixer,
+       // autoprefixer,
       ],
     };
     return {

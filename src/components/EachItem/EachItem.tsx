@@ -56,6 +56,7 @@ export default function EachItem({isMember = false, isRow = false, isNew = false
     const router = useRouter()
     const pathname = usePathname()
     const [isFavorite, setIsFavorite] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isPending, startTransition] = useTransition();
 
         // 価格をクライアントでロケール依存で表示

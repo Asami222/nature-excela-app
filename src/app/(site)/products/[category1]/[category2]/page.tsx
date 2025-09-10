@@ -5,14 +5,7 @@ import Product from "@/components/Productbasic/ProductBasic";
 import { INITIAL_PER_PAGE } from "@/constants";
 import styles from './page.module.css';
 
-type Props = {
-  params: {
-    category1: string; // bigCategory
-    category2: string; // smallCategory
-  };
-};
-
-export const NameDict: Record<string, string> = {
+const NameDict: Record<string, string> = {
   "cream": "ミネラル成分を豊富に含んだ肌に優しく柔らかな使い心地です。",
   "cleansing": "植物の浄化作用で汚れをすっきり落とし、強すぎない成分で肌の自然な油分を守ります。",
   "serum": "自然のパワーをふんだんに取り入れたNATURE EXCELAが自信を持ってお勧めする他社にはない商品です。使う毎により強く生まれ変わる肌を体験してください。",
@@ -22,7 +15,7 @@ export const NameDict: Record<string, string> = {
   "stick": "汗や水で落ちにくく、滑りの良い描き心地と発色性の良さがあります。",
 } 
 
-export default async function ProductListPage({ params }: Props) {
+export default async function ProductListPage({params}: {params: Promise<{ category1: string, category2: string }>}) {
   const { category1, category2 } = await params;
 
   const products = await getList("products",{

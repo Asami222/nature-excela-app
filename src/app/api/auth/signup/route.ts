@@ -20,6 +20,7 @@ export async function POST(req: Request) {
     })
 
     return NextResponse.json({ user: { id: newUser.id, email: newUser.email, name: newUser.name } });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
     return NextResponse.json({ error: "ユーザー作成に失敗しました" }, { status: 500 });
   }

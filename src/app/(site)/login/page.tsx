@@ -3,6 +3,7 @@
 import { useForm, SubmitHandler, SubmitErrorHandler } from "react-hook-form";
 import { signIn } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css"
 
@@ -99,9 +100,11 @@ export default function LoginForm() {
         onClick={handleGoogleLogin}
         className={styles.googleButton}
       >
-        <img
+        <Image
           src="https://www.svgrepo.com/show/355037/google.svg"
           alt="Google"
+          width={20}
+          height={20}
         />
         <span>Googleでログイン</span>
       </button>

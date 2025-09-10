@@ -9,6 +9,7 @@ export async function POST() {
   const guestPassword = randomUUID()
   const hashedPassword = await hash(guestPassword, 10)
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const user = await prisma.user.create({
     data: {
       email: guestEmail,

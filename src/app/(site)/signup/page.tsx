@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
@@ -59,6 +60,7 @@ export default function SignUpPage() {
         redirect: true,
         callbackUrl,
       });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setLoading(false);
       alert("サーバーエラーが発生しました");
@@ -73,6 +75,7 @@ export default function SignUpPage() {
         redirect: true,
         callbackUrl, // 前のページに戻る
       });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setLoading(false);
       alert("Googleログインに失敗しました");
@@ -143,9 +146,11 @@ export default function SignUpPage() {
         className={styles.googleButton}
         disabled={loading}
       >
-        <img
+        <Image
           src="https://www.svgrepo.com/show/355037/google.svg"
           alt="Google"
+          width={20}
+          height={20}
         />
         <span>Googleではじめる</span>
       </button>
