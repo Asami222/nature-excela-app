@@ -26,26 +26,40 @@ export async function POST(req: Request) {
     const session = event.data.object as Stripe.Checkout.Session;
 
     const userId = session.metadata?.userId;
-    const totalPrice = session.metadata?.totalPrice
-      ? parseInt(session.metadata.totalPrice)
-      : 0;
-    const totalCount = session.metadata?.totalCount
-      ? parseInt(session.metadata.totalCount)
-      : 0;
+    const totalPrice = parseInt(session.metadata?.totalPrice || "0");
+    const totalCount = parseInt(session.metadata?.totalCount || "0");
+    const cartProducts = session.metadata?.cart
+      ? JSON.parse(session.metadata.cart)
+      : [];
 
-    if (userId && totalPrice) {
+    if (userId) {
       try {
         await prisma.order.create({
           data: {
-            userId: userId,
+            userId,
             totalPrice,
             totalCount,
             stripeId: session.id,
+            items: {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              create: cartProducts.map((p: any) => ({
+                name: p.name,
+                price: p.price,
+                quantity: p.quantity,
+                imageUrl: p.imageUrl,
+              })),
+            },
           },
         });
-        console.log("Order saved in Prisma:", userId, totalPrice);
+
+        console.log(
+          "Order saved with items:",
+          userId,
+          totalPrice,
+          cartProducts.length
+        );
       } catch (err) {
-        console.error("Failed to save order:", err);
+        console.error("Failed to save order with items:", err);
       }
     }
   }

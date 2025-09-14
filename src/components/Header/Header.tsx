@@ -1,3 +1,5 @@
+
+import { getServerSession } from "@/lib/auth";
 import { HeaderLogoSimple } from "../Logo/Logo"
 import Nav from "../Nav/Nav"
 import CartCount from "../CartCount/CartCount"
@@ -8,7 +10,9 @@ import Link from "next/link";
 import Image from "next/image"
 import MemberMenu from "../MemberMenu/MemberMenu"
 
-export default function Header({isHome = false}) {
+export default async function Header({isHome = false}) {
+
+    const session = await getServerSession();
 
     return (
         <header className={styles.header}>
@@ -19,7 +23,7 @@ export default function Header({isHome = false}) {
                 }
                 <Nav isHeader isHome={isHome}/>
                 <div className={styles.globalsContainer}>
-                    <MemberMenu />
+                    <MemberMenu session={session}/>
                     <Link href="/payments">
                         <div className={styles.globals}>
                             <div className={cx(styles.img, styles.bagimg)}>

@@ -6,6 +6,13 @@ import Pagination from "@/components/Pagination/Pagination";
 import styles from './page.module.css'
 import { INITIAL_PER_PAGE } from "@/constants";
 import { getUserFavorites } from "@/lib/favorite";
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata({
+  title: "新商品",
+  description: "新商品紹介ページです。季節限定の商品などのラインナップです。",
+  path: "/new-product",
+});
 
 export default async function NewProduct() {
 

@@ -19,30 +19,35 @@ type MenuProps = {
 const Menu = ({ data, isMobile = false }: MenuProps) => {
     return (
       <div className={styles.menu}>
-        {data.map((item, i) => {
-          if (item.type === "link") {
-            // linkタイプのとき
-            return isMobile ? (
-              <p key={i} className={styles.existFlex}>
-                {item.exist && <span className={styles.exist}>exists!</span>}
-                <Link href={item.link}>{item.name}</Link>
-              </p>
-            ) : (
-              <p key={i}>
-                <Link href={item.link}>{item.name}</Link>
-                {item.exist && <span className={styles.exist}>exists!</span>}
-              </p>
-            )
-          } else {
-            // categoryタイプのとき
-            return (
-              <h2 key={i}>
-                {item.name}
-              </h2>
-            )
-          }
-        })}
-      </div>
+            {isMobile ?
+            (data.map((item,i) => (
+                item.type === "link" ? (
+                    <p key={i} className={styles.existFlex}>
+                        {item.exist && <span className={styles.exist}>exists!</span>}
+                        <Link href={item.link}>
+                            {item.name}
+                        </Link>
+                    </p> 
+                ):(
+                    ''
+                )
+            )))
+            :(data.map((item,i) => (
+              item.type === "link" ? (
+                    <p key={i}>
+                        <Link href={item.link}>
+                            {item.name}
+                        </Link>
+                        {item.exist && <span className={styles.exist}>exists!</span>}
+                    </p>
+                ):(
+                    <h2 key={i}>
+                        {item.name}
+                    </h2>
+                )
+            )))
+        }
+        </div>
     )
   }
 

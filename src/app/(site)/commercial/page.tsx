@@ -1,6 +1,12 @@
-
+import { createMetadata } from "@/lib/metadata";
 import Container from "@/components/Container/Container";
 import TermBody from "@/components/TermBody/TermBody";
+
+export const metadata = createMetadata({
+    title: "特定商取引法に基づく表記",
+    description: "特定商取引法に基づく表記ついてのページです。",
+    path: "/commercial",
+});
 
 export default function Commercial() {
     return (

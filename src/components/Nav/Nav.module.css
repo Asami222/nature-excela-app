@@ -11,11 +11,11 @@
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
 }
-/*
+
 .navList li {
-  background-color: var(--white);
+  text-transform: uppercase;
 }
-*/
+
 .navList li a,
 .productArrow{
   display: inline-block;

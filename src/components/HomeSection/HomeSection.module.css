@@ -43,6 +43,10 @@
   border-radius: 1px;
   margin: 0 0.5em;
 }
+
+.titleFlex h2 {
+  text-transform: uppercase;
+}
 /* スキンケア ----------------------------------------*/
 .skincare {
   grid-template-columns: 1fr 39.6%;

@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const { totalPrice, totalCount, userId } = body;
+  const { totalPrice, totalCount, userId, cart } = body;
 
   // 環境変数から取得（本番ではVercelに設定してある値）
   const origin =
@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
       cancel_url: `${origin}/payments?canceled=true`,
       metadata: {
         userId,
+        cart: JSON.stringify(cart), // Webhook で使う
         totalPrice: totalPrice.toString(),
         totalCount: totalCount.toString(),
       },

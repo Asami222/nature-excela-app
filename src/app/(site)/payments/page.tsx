@@ -1,64 +1,13 @@
-"use client";
+// app/payments/page.tsx  ← サーバーコンポーネントに変更
+import { createMetadata } from "@/lib/metadata";
+import PaymentsClient from "./PaymentsClient"; // 👈 クライアント分離
 
-import Container from "@/components/Container/Container";
-import { useSession } from "next-auth/react";
-import { useRouter, usePathname } from "next/navigation"
-import { useAtomValue } from "jotai";
-import { cartAtom, totalPriceAtom, totalCountAtom } from "@/store/cart";
-import InBag from "@/components/InBag/InBag";
-import cx from "classnames"
-import styles from './page.module.css';
+export const metadata = createMetadata({
+  title: "カート",
+  description: "カートに入れた商品一覧ページです。",
+  path: "/payments",
+});
 
-export default function  PaymentsPage() {
-    const { data: session } = useSession();
-    const router = useRouter()
-    const pathname = usePathname()
-    const cart = useAtomValue(cartAtom);
-    const totalCount = useAtomValue(totalCountAtom);
-    const totalPrice = useAtomValue(totalPriceAtom);
-
-    const handleCheckout = async () => {
-        if (!session) {
-            // 未ログイン時は現在のページを callbackUrl に渡す
-            router.push(`/login?callbackUrl=${encodeURIComponent(pathname)}`)
-            return
-          }
-          const res = await fetch("/api/checkout", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ totalPrice, totalCount }),
-          });
-        
-          const data = await res.json();
-          if (data.url) {
-            window.location.href = data.url; // Stripe Checkout にリダイレクト
-          } else {
-            alert("Checkout session 作成に失敗しました");
-          }
-    }
-    
-    return (
-        <div className={styles.wrapper}>
-            <Container>
-            <div className={cx("sideBySideCenter",styles.titleWrap)}>
-                <h1>カート</h1>
-                <div>
-                    <p>個数&emsp;{totalCount}点</p>
-                    <p>合計&emsp;{totalPrice.toLocaleString()}円（税込）</p>
-                    <div className={styles.button}>
-                        <button type="submit" onClick={handleCheckout}>購入手続きへ</button>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div className={styles.productContainer}>
-                {cart.products.length === 0 && <p>カートにアイテムが入っていません</p>}
-                {cart.products.map((product) => (
-                <InBag product={product} key={product.id} />
-                ))}
-                </div>
-            </div>
-            </Container>
-        </div>
-    )
+export default function PaymentsPage() {
+  return <PaymentsClient />;
 }

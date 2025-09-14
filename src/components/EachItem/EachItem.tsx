@@ -69,6 +69,15 @@ export default function EachItem({isMember = false, isRow = false, isNew = false
         setIsFavorite(initialFavorite);
     }, [initialFavorite]);
 
+    const handleClick = () => {
+        if (!session) {
+            // 未ログイン時は現在のページを callbackUrl に渡す
+            router.push(`/login?callbackUrl=${encodeURIComponent(pathname)}`)
+            return
+        }
+        addCart(product)
+    }
+
     const toggleFavorite = async () => {
         if (!session) {
           // 未ログイン時は現在のページを callbackUrl に渡す
@@ -134,7 +143,7 @@ export default function EachItem({isMember = false, isRow = false, isNew = false
                 
                 <div className={cx(isRow ? styles.row : styles.col)}>
                     <p className={styles.price}>{price}円（税込）</p>
-                    <button className={styles.btn} onClick={() => addCart(product)}>バッグに入れる</button>
+                    <button className={styles.btn} onClick={handleClick}>バッグに入れる</button>
                 </div>
             </div>
             <HeartIcon isFavorite={isFavorite} onToggle={toggleFavorite} />

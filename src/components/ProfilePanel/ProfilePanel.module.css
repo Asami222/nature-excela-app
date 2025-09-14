@@ -10,8 +10,7 @@
 }
 
 .photo img {
-  border-radius: 9999px;
-  cursor: pointer;
+  border-radius: 5px;
   object-fit: cover;
   object-position: center;
 }

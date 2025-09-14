@@ -14,7 +14,7 @@ export default function ProfilePanel({
     <div className={styles.module}>
       <div className={styles.photo}>
         <Image
-          src={imageUrl || "/items/account.svg"}
+          src={imageUrl || "/items/noImg.jpg"}
           width={98}
           height={98}
           alt={name || ""}

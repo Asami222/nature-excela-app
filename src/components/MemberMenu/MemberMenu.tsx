@@ -4,11 +4,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import styles from "./MemberMenu.module.css"; // CSS Modules
+import { Session } from 'next-auth';
+//import { useSession } from "next-auth/react";
 
-export default function MemberMenu() {
-  const { data: session } = useSession();
+type MemberMenuProps = {
+  session: Session | null
+};
+
+export default function MemberMenu({ session }: MemberMenuProps) {
+
+  const imageSrc = session?.user?.image ?? "/items/noImg.jpg";
 
   if (!session) {
     // 未ログイン → プロフィールアイコンをクリックしたら /login に飛ばすだけ
@@ -20,8 +27,11 @@ export default function MemberMenu() {
                   src="/items/account.svg"
                   alt="account"
                   fill
+                  sizes='25px'
                   style={{
-                      objectFit: 'cover',
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    borderRadius: '50%'
                   }}
                 />
             </div>
@@ -33,16 +43,20 @@ export default function MemberMenu() {
   return (
     <Menu as="div" className={styles.menu}>
       <MenuButton className={styles.profileButton}>
+        <div className={styles.globals}>
           <div className={styles.img}>
             <Image
-              src="/items/account.svg"
+              src={imageSrc}
               alt="account"
               fill
+              sizes='25px'
               style={{
-              objectFit: 'cover',
+                objectFit: "cover",
+                objectPosition: "center",
               }}
             />
           </div>
+        </div>
       </MenuButton>
       <MenuItems className={styles.items}>
         
@@ -68,7 +82,5 @@ export default function MemberMenu() {
         </MenuItem>
       </MenuItems>
     </Menu>
-    
   );
-
 }

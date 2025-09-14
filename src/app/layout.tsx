@@ -1,7 +1,7 @@
 import '../styles/variables.css';
 import '../styles/globals.css';
 import Providers from "./providers";
-import type { Metadata } from "next";
+import { createMetadata } from "@/lib/metadata";
 import { Noto_Serif_JP } from "next/font/google";
 import { getInitialCart } from '@/lib/cart';
 
@@ -11,10 +11,7 @@ const notoSerifJP = Noto_Serif_JP({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "My App",
-  description: "Next.js App with Tailwind and Noto Serif JP",
-};
+export const metadata = createMetadata(); // サイト全体のデフォルト
 
 export default async function RootLayout({
   children,
@@ -30,6 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="ja" className={`${notoSerifJP.className}`}>
       <head>
+        <link rel="icon" href="/icon.ico" />
         {/* リセットCSS */}
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
       </head>

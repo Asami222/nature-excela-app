@@ -1,8 +1,6 @@
-//import { notFound } from "next/navigation";
-import { SITE_NAME } from "@/constants";
+
 import { getServerSession } from "@/lib/auth";
-//import { prisma } from "@/lib/prisma";
-import type { Metadata } from "next";
+import { createMetadata } from "@/lib/metadata";
 import { redirect } from "next/navigation"
 import Pagination from "@/components/Pagination/Pagination";
 import { getUserFavorites } from "@/lib/favorite";
@@ -12,13 +10,11 @@ import EachItem from "@/components/EachItem/EachItem";
 //import { ProfilePanel } from "@/components/ProfilePanel/ProfilePanel";
 import styles from "./page.module.css"
 
-export async function generateMetadata(): Promise<Metadata> {
-  const session = await getServerSession();
-  if (!session) {
-    redirect("/login");
-  }
-  return { title: `${session?.user.name} | ${SITE_NAME}` };
-}
+export const metadata = createMetadata({
+  title: "マイページ",
+  description: "メンバーページです",
+  path: "/member",
+});
 
 export default async function Page() {
 
@@ -42,10 +38,10 @@ export default async function Page() {
       id: p.id,
       smallCategoryId: p.smallCategory,
       image: {
-         url: p.image.url,
-         alt: p.image.alt,
-         width: p.image.width,
-         height: p.image.height,
+         url: p.image?.url ?? "/items/noImg.jpg", // fallback
+         alt: p.image?.alt ?? "no image",
+         width: p.image?.width ?? 100,
+         height: p.image?.height ?? 100,
        },
       name: p.name,
       price: p.price,
@@ -58,7 +54,7 @@ export default async function Page() {
     <>
     <div className={styles.container}>
       <Container large>
-        <ProductText title="favorite products" user={session.user} profile/>
+        <ProductText title="favorite products" user={session?.user} profile/>
         <div className={styles.grid}>
             {imgData.map((product,id) => (
               <EachItem 
@@ -79,5 +75,4 @@ export default async function Page() {
     <Pagination totalCount={favorites.length} createHref={(p) => `/profile/p/${p}`}/>
     </>
   );
-
 }

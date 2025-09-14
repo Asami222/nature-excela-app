@@ -53,6 +53,17 @@ model Order {
   stripeId   String?
   createdAt  DateTime @default(now())
   user       User     @relation(fields: [userId], references: [id])
+  items      OrderItem[]
+}
+
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  order     Order  @relation(fields: [orderId], references: [id])
+  name      String
+  price     Int
+  quantity  Int
+  imageUrl  String
 }
 
 model Account {

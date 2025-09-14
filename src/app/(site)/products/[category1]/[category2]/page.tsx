@@ -1,8 +1,9 @@
-
 import { getList } from "@/lib/microcmsApi";
 import Pagination from "@/components/Pagination/Pagination";
 import Product from "@/components/Productbasic/ProductBasic";
 import { INITIAL_PER_PAGE } from "@/constants";
+import { createMetadata } from "@/lib/metadata";
+import { BigNameDict } from "../page";
 import styles from './page.module.css';
 
 const NameDict: Record<string, string> = {
@@ -14,6 +15,26 @@ const NameDict: Record<string, string> = {
   "palette": "自然の力強い色からインスピレーションを得たバリエーションです。",
   "stick": "汗や水で落ちにくく、滑りの良い描き心地と発色性の良さがあります。",
 } 
+
+const TitleDict: Record<string, string> = {
+  "cream": "クリーム",
+  "cleansing": "クレンジング",
+  "serum": "美容液",
+  "shadow": "アイシャドウ",
+  "mascara": "マスカラ",
+  "palette": "アイパレット",
+  "stick": "リップスティック",
+} 
+
+export async function generateMetadata({params}: {params: Promise<{ category1: string, category2: string }>}) {
+  const { category1, category2 } = await params;
+
+  return createMetadata({
+    title: `${BigNameDict[category1]}(${TitleDict[category2]})`,
+    description: `${NameDict[category2]}の商品一覧ページです`,
+    path: `/products/${category1}/${category2}`,
+  });
+}
 
 export default async function ProductListPage({params}: {params: Promise<{ category1: string, category2: string }>}) {
   const { category1, category2 } = await params;
@@ -40,24 +61,21 @@ export default async function ProductListPage({params}: {params: Promise<{ categ
       quantity: 1
   }))
 
-
   return (
     <>
     {  
       products.contents.length === 0 ? (
         <div className={styles.noProduct}><p>商品はありません</p></div>
         ) : (
-          products.contents.map((product,i) => 
           <Product 
-            key={i} 
-            smallCategoryId={product.smallCategory? product.smallCategory?.id : ""}
-            title={product.smallCategory? product.smallCategory?.name : ""}
-            text={product.smallCategory? NameDict[product.smallCategory.id] : ""}
+            smallCategoryId={products.contents[0].smallCategory? products.contents[0].smallCategory?.id : ""}
+            title={products.contents[0].smallCategory? products.contents[0].smallCategory?.name : ""}
+            text={products.contents[0].smallCategory? NameDict[products.contents[0].smallCategory.id] : ""}
             images={imgData}
-            hasColor={!!product.color}
-            isRow={!!product.color}
-            isCol={product.bigCategory.name === "SKINCARE"}
-          />) 
+            hasColor={!!products.contents[0].color}
+            isRow={!!products.contents[0].color}
+            isCol={products.contents[0].bigCategory.name === "SKINCARE"}
+          />
         )}
     <Pagination totalCount={products.totalCount} createHref={(p) => `/products/${category1}/${category2}/p/${p}`} />
     </>

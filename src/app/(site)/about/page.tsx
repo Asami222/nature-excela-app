@@ -1,4 +1,4 @@
-
+import { createMetadata } from "@/lib/metadata";
 import Image from 'next/image'
 import styles from './page.module.css'
 import Container from '@/components/Container/Container';
@@ -32,6 +32,12 @@ const data = {
         },
     ],
 };
+
+export const metadata = createMetadata({
+    title: "私たちについて",
+    description: "私たちの会社についての紹介ページです。",
+    path: "/about",
+});
 
 export default function About() {
     

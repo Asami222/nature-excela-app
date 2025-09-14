@@ -7,16 +7,29 @@
 }
 
 .titleWrap > div {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   width: 65%;
-  height: clamp(5.625rem, 4.745rem + 3.76vw, 8.125rem);
+  height: auto;
   align-items: center;
   border: 1px dashed;
   border-radius: 5px;
+  padding: 20px;
+  font-size: var(--body);
+}
+.price {
+  grid-column: 2/4;
+  padding-left: 8px;
+}
+
+.count {
+  grid-column: 1/2;
+  display: inline-block;
+  justify-self: center;
 }
 
 .button {
+  grid-column: 4/6;
   padding: 10px 20px;
   border-radius: 5px;
   color: var(--white);
@@ -45,11 +58,29 @@
 
   .titleWrap > div {
       width: 100%;
+      grid-template-columns: 1fr 1fr 1fr;
       margin-top: 20px;
+      text-align: center;
+      row-gap: 16px;
   }
 
   .productContainer p {
       text-align: center;
+  }
+
+  .count {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  .price {
+    grid-column: 2/4;
+    grid-row: 1/2;
+  }
+
+  .button {
+    grid-column: 1/4;
+    grid-row: 2/3;
   }
 
 }

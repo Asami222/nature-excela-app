@@ -1,8 +1,15 @@
 
+import { createMetadata } from "@/lib/metadata";
 import Link from "next/link"
 import Accordion from "@/components/Accordion/Accordion"
 import styles from './page.module.css'
 import Form from "@/components/Form/Form"
+
+export const metadata = createMetadata({
+  title: "お問い合わせ",
+  description: "ご質問、ご意見など受け付けております。",
+  path: "/contact",
+});
 
 export default function Contact() {
     return(
