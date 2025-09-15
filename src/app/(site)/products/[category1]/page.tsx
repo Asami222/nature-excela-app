@@ -24,6 +24,10 @@ export async function generateMetadata({params}: {params: Promise<{ category1: s
   });
 }
 
+export async function generateStaticParams() {
+  return Object.keys(productCategories).map((category1) => ({ category1 }));
+}
+
 export default async function ProductPage({params}: {params: Promise<{ category1: CategoryKey}>}) {
   const { category1 } =  await params;
 

@@ -15,7 +15,7 @@ export type Products = {
   release?: string;
   color?: string
   bigCategory: Category;
-  smallCategory?: Category;
+  smallCategory: Category;
   promotionalText?: string
 } & MicroCMSContentId &
   MicroCMSDate;
