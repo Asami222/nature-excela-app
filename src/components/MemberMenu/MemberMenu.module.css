@@ -28,6 +28,20 @@
   overflow: hidden;
 }
 
+.skeleton {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: #ccc;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
 .items {
   position: absolute;
   right: 0;

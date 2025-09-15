@@ -1,21 +1,33 @@
 // components/ProfileMenu.tsx
 "use client";
 
+import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import styles from "./MemberMenu.module.css"; // CSS Modules
 import { Session } from 'next-auth';
 //import { useSession } from "next-auth/react";
 
-type MemberMenuProps = {
-  session: Session | null
-};
 
-export default function MemberMenu({ session }: MemberMenuProps) {
+export default function MemberMenu() {
 
-  const imageSrc = session?.user?.image ?? "/items/noImg.jpg";
+  const { data: session, status } = useSession();
+
+  // Skeleton表示フラグ
+  const loading = status === "loading";
+
+  const imageSrc = session?.user?.image;
+  
+  if (loading) {
+    // 読み込み中は丸いスケルトンを表示
+    return (
+      <div className={styles.img}>
+        <div className={styles.skeleton}></div>
+      </div>
+    );
+  }
 
   if (!session) {
     // 未ログイン → プロフィールアイコンをクリックしたら /login に飛ばすだけ
@@ -39,14 +51,14 @@ export default function MemberMenu({ session }: MemberMenuProps) {
       </Link>
     );
   }
-
+  // ログイン済みユーザー
   return (
     <Menu as="div" className={styles.menu}>
       <MenuButton className={styles.profileButton}>
         <div className={styles.globals}>
           <div className={styles.img}>
             <Image
-              src={imageSrc}
+              src={imageSrc ?? "/items/noImg.jpg"}
               alt="account"
               fill
               sizes='25px'
