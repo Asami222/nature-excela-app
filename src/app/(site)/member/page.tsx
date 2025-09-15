@@ -55,7 +55,10 @@ export default async function Page() {
     <div className={styles.container}>
       <Container large>
         <ProductText title="favorite products" user={session?.user} profile/>
-        <div className={styles.grid}>
+        { favorites.length === 0 ? (
+          <p className={styles.empty}>お気に入り商品は登録されていません</p>
+        ) : (
+          <div className={styles.grid}>
             {imgData.map((product,id) => (
               <EachItem 
                 key={id} 
@@ -70,6 +73,7 @@ export default async function Page() {
               />
             ))}
         </div>  
+        )}
       </Container>
     </div>
     <Pagination totalCount={favorites.length} createHref={(p) => `/profile/p/${p}`}/>

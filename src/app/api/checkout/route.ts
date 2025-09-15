@@ -1,6 +1,7 @@
 // app/api/checkout/route.ts
 import { stripe } from "@/lib/stripe";
 import { NextRequest, NextResponse } from "next/server";
+import { Product } from "@/store/cart";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
@@ -29,7 +30,8 @@ export async function POST(request: NextRequest) {
       cancel_url: `${origin}/payments?canceled=true`,
       metadata: {
         userId,
-        cart: JSON.stringify(cart), // Webhook で使う
+        productIds: cart.map((item: Product) => item.id).join(","),
+        //cart: JSON.stringify(cart), // Webhook で使う
         totalPrice: totalPrice.toString(),
         totalCount: totalCount.toString(),
       },
