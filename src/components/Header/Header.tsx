@@ -28,7 +28,7 @@ export default async function Header({isHome = false}) {
                         <div className={styles.globals}>
                             <div className={cx(styles.img, styles.bagimg)}>
                                 <Image
-                                    src="/items/bagfill.svg"
+                                    src="/items/bagFill.svg"
                                     alt="shopping bag"
                                     fill
                                     style={{
