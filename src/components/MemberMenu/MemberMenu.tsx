@@ -1,14 +1,11 @@
 // components/ProfileMenu.tsx
 "use client";
 
-import { useRouter } from "next/navigation";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { signOut, useSession } from "next-auth/react";
-import styles from "./MemberMenu.module.css"; // CSS Modules
-import { Session } from 'next-auth';
-//import { useSession } from "next-auth/react";
+import styles from "./MemberMenu.module.css"; 
 
 
 export default function MemberMenu() {
