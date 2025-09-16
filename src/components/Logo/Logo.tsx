@@ -24,35 +24,25 @@ export function HeaderLogoSimple() {
 export function FooterLogo({isHome = false}) {
     
     return (
-        <div className={styles.footerLogo}>
-            <Link href="/">
+            <Link href="/" className={styles.footerLogo}>
                 { isHome ?
                     <>
                         {/* モバイル用 */}
                         <Image
                             src="/home/LogoHomeM.svg"
                             alt="Nature Excela"
-                            width={250}
-                            height={41}
-                            sizes='(min-width: 768px) 250px, 50vw'
+                            fill
+                            sizes="(max-width: 768px) 50vw, 0vw"
                             className={styles.footerLogoMobile}
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                            }}
+                            priority
                         />
                         {/* PC用 */}
                         <Image
                         src="/home/LogoFooter.svg"
                         alt="Nature Excela"
-                        width={347}
-                        height={50}
-                        sizes='(min-width: 1260px) 347px, (min-width: 768px) 33vw, 50vw'
+                        fill
+                        sizes='(min-width: 1260px) 347px, (max-width: 768px) 0vw, 50vw'
                         className={styles.footerLogoPc}
-                        style={{
-                            width: '100%',
-                            height: 'auto',
-                        }}
                         priority
                         />
                     </>
@@ -60,17 +50,11 @@ export function FooterLogo({isHome = false}) {
                     <Image
                         src="/home/LogoFooter.svg"
                         alt="Nature Excela"
-                        width={347}
-                        height={50}
+                        fill
                         sizes='(min-width: 1260px) 347px, (min-width: 768px) 33vw, 50vw'
-                        style={{
-                            width: '100%',
-                            height: 'auto',
-                        }}
                         priority
                     />
                 } 
             </Link>
-        </div>
     )
 }

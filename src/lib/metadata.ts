@@ -1,6 +1,6 @@
 // lib/metadata.ts
 import type { Metadata } from "next";
-import { SITE_NAME, SITE_DESC, SITE_URL } from "@/lib/constants";
+import { SITE_NAME, SITE_DESC, SITE_URL } from "@/constants";
 
 export function createMetadata({
   title,

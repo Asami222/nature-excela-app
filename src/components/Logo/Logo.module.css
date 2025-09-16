@@ -96,11 +96,10 @@
 /* FooterLogo ------------------------------------------------------------------------ */
 
 .footerLogo {
-  width: clamp(11.875rem, 8.285rem + 15.32vw, 21.688rem);
-  /*padding-bottom: clamp(0.438rem, 0.369rem + 0.29vw, 0.625rem);
-  border-bottom: 2px solid var(--black);
-  */
-  height: auto;
+  display: block;
+  position: relative; /* fill を使うので必須 */
+  width: clamp(11.875rem, 8.285rem + 15.32vw, 21.688rem); /* レスポンシブ幅 */
+  aspect-ratio: 347 / 50; /* 元画像の比率を維持 */
 }
 
 .footerLogo:hover {

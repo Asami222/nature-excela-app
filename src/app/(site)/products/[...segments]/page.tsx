@@ -27,17 +27,6 @@ const TitleDict: Record<string, string> = {
   "palette": "アイパレット",
   "stick": "リップスティック",
 } 
-/*
-export async function generateMetadata({params}: {params: Promise<{ category1: string, category2: string }>}) {
-  const { category1, category2 } = await params;
-
-  return createMetadata({
-    title: `${BigNameDict[category1]}(${TitleDict[category2]})`,
-    description: `${NameDict[category2]}の商品一覧ページです`,
-    path: `/products/${category1}/${category2}`,
-  });
-}
-*/
 // app/(site)/products/[...segments]/page.tsx と同じ構造に揃える
 export async function generateMetadata({ params }: { params: Promise<{ segments: string[] }> }) {
   const {segments} = await params;

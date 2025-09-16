@@ -16,9 +16,10 @@
   align-items: center;
   width: 36px;
   height: 36px;
+  border-radius: 3px;
 }
 
 .current {
-  color: var(--color-text-unpainted);
-  background-color: var(--color-button-primary);
+  color: var(--white);
+  background-color: var(--black);
 }
