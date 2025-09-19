@@ -59,6 +59,7 @@ export default function HomeHero() {
                 fill
                 placeholder='blur'
                 priority
+                fetchPriority="high"
                 className={styles.faceMobile}
                 sizes="(max-width: 768px) 100vw, 0px"
                 quality={20}
