@@ -1,6 +1,7 @@
 .wrapper {
   padding: 50px clamp(1.25rem, 0.793rem + 1.95vw, 2.5rem);
   background-color: var(--white);
+  border-top: 1px solid transparent;
 }
 
 .footerFlex {
@@ -48,7 +49,7 @@
 
   .homeWrapper {
       background-color: var(--black);
-      border-top: var(--gray0-dark);
+      border-top-color: var(--gray0-dark);
   }
 
   .flexContainer {

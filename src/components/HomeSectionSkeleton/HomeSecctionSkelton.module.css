@@ -1,0 +1,92 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 39.6%;
+  align-items: center;
+}
+
+/* グレーの箱 */
+.box {
+  background-color: #525151; /* Tailwind の bg-gray-200 相当 */
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* タイトル用 */
+.title {
+  width: 40%;
+  height: 24px;
+}
+
+/* メニュー用（5個分くらい並べる） */
+.menu {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(5,1fr);
+  margin-right: 1px;
+}
+
+.menu2 {
+  margin-left: 1px;
+}
+
+.menu > * {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.menuItem {
+  width: 100%;
+  height: 59px;
+}
+
+/* 画像用 */
+.image {
+  width: 100%;
+  height: 300px;
+}
+
+/* パルスアニメーション */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  .image {
+    width: 100%;
+    height: 120px;
+  }
+
+  .menu {
+    display: grid;
+    height: auto;
+    grid-template-rows: repeat(5,1fr);
+    margin-right: 0px;
+  }
+
+  .menu2 {
+    margin-left: 0;
+  }
+
+  .menuItem {
+    width: 100%;
+    height: 59px;
+    margin-bottom: 1px;
+  }
+}

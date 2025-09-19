@@ -61,6 +61,7 @@ export default function HomeHero() {
                 priority
                 className={styles.faceMobile}
                 sizes="(max-width: 768px) 100vw, 0px"
+                quality={20}
                 style={{
                   objectFit: 'cover',
                 }}
@@ -70,7 +71,6 @@ export default function HomeHero() {
                 alt=''
                 sizes='(max-width: 768px) 0px, (min-width: 1440px) 500px, 35vw'
                 placeholder='blur'
-                priority
                 className={styles.facePc}
                 style={{
                   width: '100%',

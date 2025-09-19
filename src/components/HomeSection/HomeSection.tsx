@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+//import { useEffect, useState } from "react";
 import styles from './HomeSection.module.css'
 import Link from "next/link";
 import { useMediaQuery } from 'react-responsive'
@@ -100,18 +100,18 @@ type Props = {
 }
 
 export default function HomeSection({data,img,imgM,size,name,titleDesc,color}: Props) {
-    const [isMounted, setIsMounted] = useState(false);
+    //const [isMounted, setIsMounted] = useState(false);
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
     const title = name.toUpperCase()
 
-    // マウント完了後に true にする
+    /* マウント完了後に true にする
       useEffect(() => {
         setIsMounted(true);
       }, []);
 
       // マウント前は何も描画しない
       if (!isMounted) return null;
-     
+    */ 
     return (
         <div className={cx(styles.container,styles[name])}>
             {isMobile && <h2 className={`${libreCaslonDisplay.className}`}>{title}</h2>}
