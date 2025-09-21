@@ -4,7 +4,7 @@ import EachItem from "@/components/EachItem/EachItem";
 import Container from "@/components/Container/Container";
 import Pagination from "@/components/Pagination/Pagination";
 import styles from './page.module.css'
-import { INITIAL_PER_PAGE } from "@/constants";
+//import { INITIAL_PER_PAGE } from "@/constants";
 import { getUserFavorites } from "@/lib/favorite";
 import { createMetadata } from "@/lib/metadata";
 
@@ -21,7 +21,6 @@ export default async function NewProduct() {
 
 
   const products = await getList("new-products",{
-    limit: INITIAL_PER_PAGE,
     orders: "createdAt",
   });
 
