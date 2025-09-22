@@ -12,7 +12,7 @@
 
 /* グレーの箱 */
 .box {
-  background-color: #525151; /* Tailwind の bg-gray-200 相当 */
+  background-color: #313131; 
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
