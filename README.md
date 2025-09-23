@@ -3,7 +3,7 @@
 # NATURE EXCELA APP
 ### ストーリー
 <!-- プロジェクトについて -->
-以前Page Routerで制作したNATURE EXCELAに、ログイン認証、決済機能、ユーザーページ、お気に入り登録機能を追加し、実際に運用できるECサイトとしてブラッシュアップしました。
+以前Page Routerで制作したNATURE EXCELAに、ログイン認証、決済機能、ユーザーページ、お気に入り登録機能を追加し、実際に運用できるECサイトとしてApp Routerでブラッシュアップしました。
 
 ## URL
 https://nature-excela-app.vercel.app
@@ -48,6 +48,12 @@ https://nature-excela-app.vercel.app
 - 検索機能(ransack)
 -->
 
+## テスト
+- Storybook(アクセシビリティ、インタラクション)
+  - お気に入り機能
+  - ユーザー画像
+  - 認証機能
+
 ## 環境
 
 <!-- 言語、フレームワーク、ミドルウェア、インフラの一覧とバージョンを記載 -->
@@ -62,7 +68,26 @@ https://nature-excela-app.vercel.app
 
 
 ## プロジェクト詳細
+### 既存サイトのブラッシュアップ(ECサイト)
+#### ブラッシュアップ前
+- Page Router(JS)
+- グローバルステート (recoil) ＊カート機能に使用
+- 支払い機能なし
+- テストなし
+- 認証機能なし ＊ユーザーページなし
+- DBなし
+- 画像配置(publicフォルダ)
+--------------------------------------------
+#### ブラッシュアップ後
+- App Router(TS)
+- グローバルステート (Jotai)　＊recoilが開発終了のため ＊カート機能に使用
+- 支払い機能あり(テストのみ)
+- テストあり (storybook vitest)
+- 認証機能あり (NextAuth.js)
+- DBあり(supabase) ＊アダプターにPrisma ＊ユーザーページ
+- 画像配置(microCMS)
 
+#### その他詳細
 https://asami-portfolio.vercel.app/projects/nature-app
 
 <p align="right">(<a href="#top">トップへ</a>)</p>

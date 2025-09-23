@@ -51,13 +51,8 @@ export const ProductMenuHover: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // ハンバーガーメニューを開く
-    const button = await canvas.findByRole("button", { name: /menu/i });
-    await userEvent.click(button);
-    await new Promise((r) => setTimeout(r, 500));
-
     // "product" テキストを hover する
-    const productItem = await canvas.getByText(/product/i);
+    const productItem = await canvas.getByText(/^product$/i);
     await userEvent.hover(productItem);
 
     // 少し待機（サブメニュー展開が見えるように）

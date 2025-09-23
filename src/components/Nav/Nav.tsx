@@ -39,9 +39,8 @@ export default function Nav({ isHeader = false, isHome = false}: NavProps) {
                 `}</style>
             )}
             {isHeader && 
-            <button className={styles.btn} onClick={toggleNav}>
+            <button className={styles.btn} onClick={toggleNav} aria-label="menu">
                 <span className={styles.bar}></span>
-                <span className={styles.srOnly}>MENU</span>
             </button>}
             <ul className={cx(styles.navList,isHeader ? [libreCaslonDisplay.className, styles.hamburger ] : styles.footerNav)}>
                 <li>
@@ -59,11 +58,9 @@ export default function Nav({ isHeader = false, isHome = false}: NavProps) {
                     new product
                     </Link>
                 </li>
-                <ul className={cx(styles.productFlex,isAction && styles.openProduct)}>
-                    <li className={styles.navProduct} onMouseEnter={action}>  
+                <li className={cx(styles.navProduct,isAction && styles.openProduct)} onMouseEnter={action}>
                         <p className={styles.productArrow}>product</p>
-                    </li>
-                    <div className={cx(styles.productMenu,isHeader ? styles.productMenuH : styles.productMenuF)}>
+                    <ul className={cx(styles.productMenu,isHeader ? styles.productMenuH : styles.productMenuF)}>
                         <li>
                             <Link href="/products/skincare" onClick={closeNav}>
                                 skincare
@@ -89,8 +86,8 @@ export default function Nav({ isHeader = false, isHome = false}: NavProps) {
                                 brush
                             </Link>
                         </li>
-                    </div>
-                </ul>
+                    </ul>
+                </li>
                 <li>
                     <Link href="/contact" onClick={closeNav}>
                     contact

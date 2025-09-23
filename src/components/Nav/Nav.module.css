@@ -231,11 +231,7 @@
       font-size: 20px;
       margin-top: 10px;
   }
-/*
-  .hamburger li {
-      background-color: transparent;
-  }
-*/
+  
   .navList li a,
   .productArrow {
       padding: 5px 20px 5px 0; 
