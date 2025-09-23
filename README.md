@@ -69,7 +69,7 @@ https://nature-excela-app.vercel.app
 
 ## プロジェクト詳細
 ### 既存サイトのブラッシュアップ(ECサイト)
-#### ブラッシュアップ前
+#### ブラッシュアップ前 ( https://nature-excela.vercel.app )
 - Page Router(JS)
 - グローバルステート (recoil) ＊カート機能に使用
 - 支払い機能なし
@@ -78,7 +78,7 @@ https://nature-excela-app.vercel.app
 - DBなし
 - 画像配置(publicフォルダ)
 --------------------------------------------
-#### ブラッシュアップ後
+#### ブラッシュアップ後 ( https://nature-excela-app.vercel.app )
 - App Router(TS)
 - グローバルステート (Jotai)　＊recoilが開発終了のため ＊カート機能に使用
 - 支払い機能あり(テストのみ)
