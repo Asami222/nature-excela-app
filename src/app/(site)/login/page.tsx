@@ -1,5 +1,5 @@
 import { createMetadata } from "@/lib/metadata";
-import LoginClient from "./loginClient";
+import LoginClient from "../../../components/LoginClient/LoginClient";
 
 export const metadata = createMetadata({
   title: "ログイン",

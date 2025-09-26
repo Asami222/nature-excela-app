@@ -26,7 +26,7 @@
 .error {
   font-size: calc(var(--body) * 0.875);
   line-height: 1.7;
-  color: red;
+  color: #cc0000;
   text-align: center;
 }
 
@@ -97,6 +97,10 @@
   padding-inline: 8px;
   color: var(--darkGray);
   font-size: var(--productColumn);
+}
+
+.kerning {
+  margin-right: -0.1em;
 }
 
 @media (max-width: 768px) {

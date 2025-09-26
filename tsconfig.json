@@ -29,7 +29,7 @@
     "types": [
       "node",
       "vitest",
-      "@storybook/react"
+      "@storybook/react",
     ],
     "incremental": true,
     "plugins": [

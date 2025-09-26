@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import styles from "./page.module.css"
+import styles from "./SignUp.module.css";
 
 const signupSchema = z.object({
   name: z.string().min(1, "名前を入力してください"),
@@ -24,7 +24,7 @@ const signupSchema = z.object({
 
 type SignupFormData = z.infer<typeof signupSchema>;
 
-export default function SignUpClient() {
+export default function SignUpClient({ onSubmitMock }: { onSubmitMock?: () => void }) {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/"; // 前のページまたはホーム
   const [loading, setLoading] = useState(false);
@@ -39,6 +39,7 @@ export default function SignUpClient() {
 
   // メール・パスワードサインアップ
   const onSubmit = async (data: SignupFormData) => {
+    if (onSubmitMock) onSubmitMock(); // ← Storybook用フラグ
     setLoading(true);
     try {
       const res = await fetch("/api/auth/signup", {
@@ -84,7 +85,7 @@ export default function SignUpClient() {
 
   return (
     <div className={styles.wrapper}>
-      <h1>アカウント登録</h1>
+      <h1>アカウ<span className={styles.kerning}>ン</span>ト登録</h1>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.form}

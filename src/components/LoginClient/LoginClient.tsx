@@ -5,16 +5,23 @@ import { signIn } from "next-auth/react"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image";
 import Link from "next/link";
-import styles from "./page.module.css"
+import styles from "./LoginClient.module.css"
 
 type Data = {
   email: string;
   password: string;
 }
 
-export default function LoginClient() {
+type LoginClientProps = {
+  /** Storybook / テスト時は push をモック差し替えできる */
+  push?: (url: string) => void;
+};
+
+export default function LoginClient({ push }: LoginClientProps) {
 
   const router = useRouter()
+  // props が渡っていればそれを優先、なければ router.push を使う
+  const doPush = push ?? router.push;
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get("callbackUrl") || "/"
 
@@ -28,7 +35,7 @@ export default function LoginClient() {
       callbackUrl,
     })
     if (res?.ok && res.url) {
-      router.push(res.url) // ログイン成功後に 前のページまたはホーム へ
+      doPush(res.url) // ログイン成功後に 前のページまたはホーム へ
     } else {
       setError("password", { type: "manual", message: "ログイン失敗しました" })
       

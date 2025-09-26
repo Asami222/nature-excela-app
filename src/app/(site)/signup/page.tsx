@@ -1,5 +1,5 @@
 import { createMetadata } from "@/lib/metadata";
-import SignUpClient from "./signupClient";
+import SignUpClient from "@/components/SignUpClient/SignUpClient";
 
 export const metadata = createMetadata({
   title: "新規登録",
