@@ -15,6 +15,13 @@ type Props = {
 export default function ProductHero({isAbout = false, isNew = false, background, title, subtitle, white = false}: Props) {
     return (
         <div className={cx(isNew ? styles.newContainer : styles.heroContainer)} style={{backgroundImage: `url(${background})`}}>
+          <Image
+            src={background}
+            alt=""
+            fill
+            priority
+            style={{ display: "none" }} // invisible ではなく display:none
+          />
             <h1 className={cx(isAbout ? styles.titleAbout : [libreCaslonDisplay.className, styles.title], white && styles.white)}>
                 {isAbout && 
                 <Image
