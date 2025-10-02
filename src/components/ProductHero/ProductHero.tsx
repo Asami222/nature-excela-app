@@ -3,6 +3,7 @@ import cx from "classnames"
 import styles from './ProductHero.module.css'
 import { libreCaslonDisplay } from "@/styles/fonts";
 import { StaticImageData } from 'next/image';
+import aboutTitle from '../../../public/about/aboutTitle.svg';
 
 type Props = {
   background: StaticImageData;
@@ -22,14 +23,14 @@ export default function ProductHero({isAbout = false, isNew = false, background,
             fill
             priority
             placeholder="blur"
-            blurDataURL={background.blurDataURL} // 低解像度 or base64
+            blurDataURL={background.blurDataURL}
             style={{ objectFit: "cover", zIndex: 0}}
           />
           <div className={styles.heroTexts}>
             <h1 className={cx(isAbout ? styles.titleAbout : [libreCaslonDisplay.className, styles.title], white && styles.white)}>
                 {isAbout && 
                 <Image
-                  src="about/aboutTitle.svg"
+                  src={aboutTitle}
                   alt='NATURE EXCELA'
                   width={541}
                   height={65}
