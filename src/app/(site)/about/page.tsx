@@ -4,7 +4,8 @@ import styles from './page.module.css'
 import Container from '@/components/Container/Container';
 import PostBody from '@/components/PostBody/PostBody';
 import ProductHero from '@/components/ProductHero/ProductHero';
-import cx from "classnames"
+import cx from "classnames";
+import aboutImg from '../../../../public/hero/about.webp';
 
 const data = {
     contents: [
@@ -43,7 +44,7 @@ export default function About() {
     
     return (
         <>
-            <ProductHero background="/hero/about.webp" subtitle="私たちについて" isAbout/>
+            <ProductHero background={aboutImg} subtitle="私たちについて" isAbout/>
             <div className={styles.wrapper}>
                 <Container>
                 <PostBody>

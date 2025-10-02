@@ -2,9 +2,23 @@ import { productCategories, CategoryItem, ProductCategories } from '@/constants/
 import ProductMain from '@/components/ProductMain/ProductMain';
 import ProductHero from '@/components/ProductHero/ProductHero';
 import { createMetadata } from "@/lib/metadata";
+import brushImage from '../../../../../public/hero/brush.webp';
+import eyeImage from '../../../../../public/hero/eye.webp';
+import ripImage from '../../../../../public/hero/rip.webp';
+import skincareImage from '../../../../../public/hero/skincare.webp';
+import faceImage from '../../../../../public/hero/face.webp';
+import { StaticImageData } from 'next/image';
 
 type CategoryKey = keyof ProductCategories; 
 // "skincare" | "face" | "eye" | "rip" | "brush"
+
+export const ImageNameDict: Record<string, StaticImageData> = {
+  "skincare": skincareImage,
+  "face": faceImage,
+  "eye": eyeImage,
+  "rip": ripImage,
+  "brush": brushImage
+}
 
 export const BigNameDict: Record<string, string> = {
   "skincare": "基礎化粧品",
@@ -38,7 +52,7 @@ export default async function ProductPage({params}: {params: Promise<{ category1
 
   return (
     <>
-      <ProductHero background={`/hero/${category1}.webp`} title={upperText} subtitle={BigNameDict[category1]} white={isWhite}/>
+      <ProductHero background={ImageNameDict[category1]} title={upperText} subtitle={BigNameDict[category1]} white={isWhite}/>
       <ProductMain items={data}/> 
     </>
   )

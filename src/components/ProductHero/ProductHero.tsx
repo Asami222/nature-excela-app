@@ -2,9 +2,10 @@ import Image from 'next/image'
 import cx from "classnames"
 import styles from './ProductHero.module.css'
 import { libreCaslonDisplay } from "@/styles/fonts";
+import { StaticImageData } from 'next/image';
 
 type Props = {
-  background: string;
+  background: StaticImageData;
   title?: string;
   subtitle: string;
   isAbout?: boolean;
@@ -14,14 +15,17 @@ type Props = {
 
 export default function ProductHero({isAbout = false, isNew = false, background, title, subtitle, white = false}: Props) {
     return (
-        <div className={cx(isNew ? styles.newContainer : styles.heroContainer)} style={{backgroundImage: `url(${background})`}}>
+        <div className={cx(isNew ? styles.newContainer : styles.heroContainer)}>
           <Image
             src={background}
-            alt=""
+            alt={subtitle}
             fill
             priority
-            style={{ display: "none" }} // invisible ではなく display:none
+            placeholder="blur"
+            blurDataURL={background.blurDataURL} // 低解像度 or base64
+            style={{ objectFit: "cover", zIndex: 0}}
           />
+          <div className={styles.heroTexts}>
             <h1 className={cx(isAbout ? styles.titleAbout : [libreCaslonDisplay.className, styles.title], white && styles.white)}>
                 {isAbout && 
                 <Image
@@ -39,6 +43,7 @@ export default function ProductHero({isAbout = false, isNew = false, background,
                 {title}    
             </h1>
             <p className={cx(isAbout ? styles.subtitleAbout : styles.subtitle, white && styles.white)}>{subtitle}</p>
+          </div>
         </div>
     )
 }

@@ -8,11 +8,11 @@
   height: clamp(10.625rem, 4.223rem + 27.32vw, 28.125rem);
   padding: 10%;
   margin: 0 auto;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
-
+.heroTexts {
+  z-index: 1;
+  text-align: center;
+}
 .title {
   font-family: "Libre Caslon Display", serif;
   font-weight: 400;
