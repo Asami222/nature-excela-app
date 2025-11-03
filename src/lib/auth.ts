@@ -6,6 +6,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { prisma } from "./prisma"
 import type { NextAuthOptions } from "next-auth"
 import { compare } from "bcryptjs"
+import { loginSchema } from "./validations/auth"
 
 // 環境ごとの設定切り替え
 //const isDev = process.env.NODE_ENV === "development"
@@ -27,15 +28,19 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        //console.log("Authorize called with:", credentials)
-        if (!credentials?.email || !credentials.password) return null
+        
+        // NextAuthのauthorize内でもloginSchemaを使ってバリデーション
+        const parsed = loginSchema.safeParse(credentials)
+        if (!parsed.success) return null
+        
+        const { email, password } = parsed.data
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: { email },
         })
         //console.log(credentials, user)
         if (!user) return null
 
-        const isValid = await compare(credentials.password, user.password)
+        const isValid = await compare(password, user.password)
         //console.log("compare result:", isValid)
         if (!isValid) return null
 

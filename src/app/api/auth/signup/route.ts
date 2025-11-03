@@ -2,12 +2,24 @@
 import { NextResponse } from "next/server"
 import { PrismaClient } from "@prisma/client"
 import { hash } from "bcryptjs"
+import { signupSchema } from "@/lib/validations/auth"
 
 const prisma = new PrismaClient()
 
 export async function POST(req: Request) {
   try {
-    const { email, password, name } = await req.json()
+    const body = await req.json()
+
+    // サーバー側バリデーション
+    const parsed = signupSchema.safeParse(body)
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: parsed.error.issues.map(i => i.message).join(", ") },
+        { status: 400 }
+      )
+    }
+
+    const { email, password, name } = parsed.data
 
     const existingUser = await prisma.user.findUnique({ where: { email } })
     if (existingUser) {
